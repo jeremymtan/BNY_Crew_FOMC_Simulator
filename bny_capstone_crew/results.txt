@@ -1,0 +1,12 @@
+finishing
+average agreement rate for votes: 93.46153846153847%
+average agreement rate for predictions: 34.62%
+total agreement rate: 64.04%
+correct rate vote percentage = 0.0%
+
+finishing
+average agreement rate for votes: 91.66666666666667%
+average agreement rate for predictions: 30.0%
+total agreement rate: 60.83%
+correct rate vote percentage = 0.0%
+
