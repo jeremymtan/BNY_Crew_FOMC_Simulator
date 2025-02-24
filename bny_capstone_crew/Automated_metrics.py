@@ -3,8 +3,8 @@ from collections import Counter
 import numpy as np
 import glob
 
-meeting_date = "May 2023"
-correct_vote = "0.25%"
+meeting_date = "September 2024"
+correct_vote = ["-0.50%"]
 
 # Step 1: Get a list of all JSON files
 json_files = glob.glob("rate_summary*.json")  # Adjust pattern to match your file names
@@ -22,6 +22,8 @@ for file in json_files:
 votes_by_member = {}
 predictions_by_member = {}
 all_votes = []
+all_dates = []
+all_metrics = []
 
 # Loop through each JSON object
 for summary in rate_summaries:
@@ -46,6 +48,8 @@ for summary in rate_summaries:
 
         # Append vote to the corresponding member
         predictions_by_member[member].append(prediction_value)
+    all_dates.append(summary["exact_historical_dates_referenced"])
+    all_metrics.append(summary["exact_metrics_mentioned"])
 
 vote_agreement_rates = []
 prediction_agreement_rates = []
@@ -64,6 +68,7 @@ for member in votes_by_member:
 
 # print(vote_agreement_rates)
 avg_vote_agreement = np.mean(vote_agreement_rates)
+print(f"Meeting Date: {meeting_date}")
 print(f"average agreement rate for votes: {avg_vote_agreement}%")
 # print(prediction_agreement_rates)
 avg_prediction_agreement = np.mean(prediction_agreement_rates)
@@ -73,5 +78,17 @@ print(
 print(
     f"total agreement rate: {np.round(np.mean([avg_vote_agreement,avg_prediction_agreement]),2)}%"
 )
-correct_vote_pct = sum([vote == correct_vote for vote in all_votes]) / len(all_votes)
+correct_vote_pct = (
+    100 * sum([vote in correct_vote for vote in all_votes]) / len(all_votes)
+)
 print(f"correct rate vote percentage = {correct_vote_pct}%")
+
+print()
+print("All dates mentioned:")
+for dates in all_dates:
+    print(dates)
+
+print()
+print("All metrics mentioned:")
+for metrics in all_metrics:
+    print(metrics)

@@ -7,16 +7,14 @@ from crewai import LLM
 ### Add knowledge source, must add pdfs and csv in knoweldege folder
 pdf_source = PDFKnowledgeSource(
     file_paths=[
-        "BeigeBook_20230419.pdf",
-        "current macro 5_23.pdf",
-        "may 2023 dot plot description.pdf",
+        "24_9 beige book.pdf",
+        "24_9 current macro.pdf",
+        "24_9 dot plot description.pdf",
         "Fed Explanation.pdf",
-        "fomcminutes_may2023.pdf",
-        "prior_statement_may2023.pdf",
     ]
 )
 
-csv_source = CSVKnowledgeSource(file_paths=["Historical_macro_data_523.csv"])
+csv_source = CSVKnowledgeSource(file_paths=["24_9 historical macro.csv"])
 
 ### add llm
 managerllm = LLM(model="openai/gpt-4o", temperature=0.03)
