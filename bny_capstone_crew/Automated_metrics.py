@@ -3,8 +3,8 @@ from collections import Counter
 import numpy as np
 import glob
 
-meeting_date = "September 2024"
-correct_vote = ["-0.50%"]
+meeting_date = "March 2024"
+correct_vote = ["0.00%", "+0.00%", "0.00", "+0.00"]
 
 # Step 1: Get a list of all JSON files
 json_files = glob.glob("rate_summary*.json")  # Adjust pattern to match your file names

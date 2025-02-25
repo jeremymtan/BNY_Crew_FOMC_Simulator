@@ -1,1 +1,46 @@
-{"exact_historical_dates_referenced": ["2022-2023", "2008"], "exact_metrics_mentioned": ["CPI", "PCE Price Index", "unemployment rate", "GDP growth rate", "financial crisis indicator"], "rate_votes": [{"member": "Federal Open Market Committee Chair", "vote": "0.00%"}, {"member": "Vice Chair of the Federal Reserve", "vote": "0.00%"}, {"member": "Regional and Regulatory Representative", "vote": "0.00%"}], "rate_predictions": [{"member": "Federal Open Market Committee Chair", "prediction": "3.75%"}, {"member": "Vice Chair of the Federal Reserve", "prediction": "3.75%"}, {"member": "Regional and Regulatory Representative", "prediction": "3.75%"}]}
+{
+    "exact_historical_dates_referenced": [
+        "2021-present",
+        "2008-2009",
+        "1970s-1980s",
+        "late 1930s",
+        "2008-2015"
+    ],
+    "exact_metrics_mentioned": [
+        "inflation moderation",
+        "labor market conditions",
+        "economic growth",
+        "financial markets stability",
+        "anchored inflation expectations",
+        "regional economic disparities",
+        "credit conditions"
+    ],
+    "rate_votes": [
+        {
+            "member": "Federal Open Market Committee Chair",
+            "vote": "0.00%"
+        },
+        {
+            "member": "Vice Chair of the Federal Reserve",
+            "vote": "0.00%"
+        },
+        {
+            "member": "Regional and Regulatory Representative",
+            "vote": "0.00%"
+        }
+    ],
+    "rate_predictions": [
+        {
+            "member": "Federal Open Market Committee Chair",
+            "prediction": "3.25-3.50%"
+        },
+        {
+            "member": "Vice Chair of the Federal Reserve",
+            "prediction": "3.0-3.25%"
+        },
+        {
+            "member": "Regional and Regulatory Representative",
+            "prediction": "3.0-3.25%"
+        }
+    ]
+}

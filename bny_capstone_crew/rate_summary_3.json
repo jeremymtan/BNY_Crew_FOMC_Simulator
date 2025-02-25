@@ -1,1 +1,40 @@
-{"exact_historical_dates_referenced": ["late 1980s"], "exact_metrics_mentioned": ["Consumer Price Index (CPI)", "Personal Consumption Expenditures (PCE) Price Index", "Michigan inflation expectation", "unemployment rate", "Brave-Butters-Kelley Real GDP growth rate"], "rate_votes": [{"member": "Federal Open Market Committee Chair", "vote": "0.00%"}, {"member": "Vice Chair of the Federal Reserve", "vote": "0.00%"}, {"member": "Regional and Regulatory Representative", "vote": "0.00%"}], "rate_predictions": [{"member": "Federal Open Market Committee Chair", "prediction": "3.75%"}, {"member": "Vice Chair of the Federal Reserve", "prediction": "3.75%"}, {"member": "Regional and Regulatory Representative", "prediction": "3.75%"}]}
+{
+  "exact_historical_dates_referenced": [
+    "mid-1990s"
+  ],
+  "exact_metrics_mentioned": [
+    "CPI at 303.365",
+    "PCE at 124.382",
+    "unemployment rate at 3.7%",
+    "GDP index at 2.88451",
+    "VIX at 17.78"
+  ],
+  "rate_votes": [
+    {
+      "member": "Federal Open Market Committee Chair",
+      "vote": "0.00%"
+    },
+    {
+      "member": "Vice Chair of the Federal Reserve",
+      "vote": "0.00%"
+    },
+    {
+      "member": "Regional and Regulatory Representative",
+      "vote": "0.00%"
+    }
+  ],
+  "rate_predictions": [
+    {
+      "member": "Federal Open Market Committee Chair",
+      "prediction": "3.00-3.25%"
+    },
+    {
+      "member": "Vice Chair of the Federal Reserve",
+      "prediction": "3.00%"
+    },
+    {
+      "member": "Regional and Regulatory Representative",
+      "prediction": "3.25-3.50%"
+    }
+  ]
+}

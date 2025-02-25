@@ -3,22 +3,36 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 from crewai.knowledge.source.csv_knowledge_source import CSVKnowledgeSource
 from crewai import LLM
+import os
 
 ### Add knowledge source, must add pdfs and csv in knoweldege folder
+date = "24_3"
 pdf_source = PDFKnowledgeSource(
     file_paths=[
-        "24_9 beige book.pdf",
-        "24_9 current macro.pdf",
-        "24_9 dot plot description.pdf",
+        f"{date} beige book.pdf",
+        f"{date} current macro.pdf",
+        f"{date} dot plot description.pdf",
         "Fed Explanation.pdf",
     ]
 )
 
-csv_source = CSVKnowledgeSource(file_paths=["24_9 historical macro.csv"])
+csv_source = CSVKnowledgeSource(file_paths=[f"{date} historical macro.csv"])
 
 ### add llm
 managerllm = LLM(model="openai/gpt-4o", temperature=0.03)
-memberllm = LLM(model="openai/gpt-4o-mini", temperature=0.03)
+# Always keep manager as GPT 4o
+
+gpt_llm = LLM(model="openai/gpt-4o-mini", temperature=0.03)
+
+deepseek_llm = LLM(
+    model="deepseek/deepseek-chat", api_key="DEEPSEEK_API_KEY", temperature=1.5
+)
+
+claude_llm = LLM(
+    model="claude-3-5-sonnet-20240620",
+    base_url="https://api.anthropic.com",
+    api_key=os.environ["ANTHROPIC_API_KEY"],
+)
 
 
 @CrewBase
@@ -43,7 +57,7 @@ class BnyCapstoneCrew:
         return Agent(
             config=self.agents_config["Jerome_H_Powell"],
             verbose=True,
-            llm=memberllm,
+            llm=claude_llm,
             knowledge_sources=[pdf_source, csv_source],
             max_iter=50,
             memory=True,
@@ -54,7 +68,7 @@ class BnyCapstoneCrew:
         return Agent(
             config=self.agents_config["John_C_Williams"],
             verbose=True,
-            llm=memberllm,
+            llm=claude_llm,
             knowledge_sources=[pdf_source, csv_source],
             max_iter=50,
             memory=True,
@@ -65,7 +79,7 @@ class BnyCapstoneCrew:
         return Agent(
             config=self.agents_config["Regional_Regulatory"],
             verbose=True,
-            llm=memberllm,
+            llm=claude_llm,
             knowledge_sources=[pdf_source, csv_source],
             max_iter=50,
             memory=True,
