@@ -4,10 +4,10 @@
 #   chmod +x run_crew.sh
 #   ./run_crew.sh
 
-COUNT=5
+COUNT=8
 
-MD_FILE="output.md"           
-JSON_PREFIX="rate_summary"    
+MD_FILE="fomc_simulation.md"  # markdown file to rename per run
+JSON_PREFIX="rate_summary"    # prefix for JSON output files
 RESULTS_FILE="results.txt"
 
 echo "running 'crew ai run' $COUNT times and extracting JSON..."
@@ -18,6 +18,9 @@ do
   
   echo "[$i] renaming rate_summary.json"
   mv rate_summary.json "${JSON_PREFIX}_${i}.json"
+  
+  echo "[$i] renaming fomc_simulation.md"
+  mv "$MD_FILE" "fomc_simulation_${i}.md"
   
   crewai reset-memories --all
 

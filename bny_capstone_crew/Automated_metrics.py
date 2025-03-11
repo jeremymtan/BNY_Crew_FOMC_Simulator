@@ -3,14 +3,31 @@ from collections import Counter
 import numpy as np
 import glob
 
-meeting_date = "September 2024"
-correct_vote = ["-0.50%"]
+meeting_code = "24_11"
+
+code2date = {
+    "23_5": "May 2023",
+    "23_7": "July 2023",
+    "24_3": "March 2024",
+    "24_9": "September 2024",
+    "24_11": "November 2024",
+}
+code2vote = {
+    "23_5": ["0.25%", "+0.25", "0.25", "+0.25"],
+    "23_7": ["0.25%", "+0.25", "0.25", "+0.25"],
+    "24_3": ["0.00%", "-0.00%", "+0.00%", "0.00", "-0.00", "+0.00"],
+    "24_9": ["-0.50%", "-0.50"],
+    "24_11": ["-0.25%", "-0.25"],
+}
+meeting_date = code2date[meeting_code]
+correct_vote = code2vote[meeting_code]
 
 # Step 1: Get a list of all JSON files
 json_files = glob.glob("rate_summary*.json")  # Adjust pattern to match your file names
 
 # Step 2: Read all JSON files into a list
 rate_summaries = []
+
 
 for file in json_files:
     with open(file, "r") as f:
