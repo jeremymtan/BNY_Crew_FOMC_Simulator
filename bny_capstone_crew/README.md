@@ -12,24 +12,23 @@ First, if you haven't already, install uv:
 pip install uv
 ```
 
-Next, navigate to your project directory and install the dependencies:
+Next, in the BNY_Crew_FOMC_Simulator directory run 
+```bash
+pip install -r requirements.txt
+```
+**DO NOT CREATE YOUR OWN VIRTUAL ENVIRONMENT**
 
-(Optional) Lock the dependencies and install them by using the CLI command:
+Enter the bny_capstone_crew directory and lock the dependencies and install them by using the CLI command:
 ```bash
 crewai install
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+**Add your `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`, etc into the `.env` file**
 
-- Modify `src/bny_capstone_crew/config/agents.yaml` to define your agents
-- Modify `src/bny_capstone_crew/config/tasks.yaml` to define your tasks
-- Modify `src/bny_capstone_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/bny_capstone_crew/main.py` to add custom inputs for your agents and tasks
 
 ## Running the Project
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+To kickstart your crew of AI agents and begin task execution, run this from the bny_capstone_crew directory:
 
 ```bash
 $ crewai run
@@ -39,22 +38,23 @@ This command initializes the bny_capstone_crew Crew, assembling the agents and a
 
 This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
 
-## Understanding Your Crew
+## Backtesting a meeting
+Once you have successfully completed a single run, you may automate 5 runs of a given meeting. **Ensure that you update crew.py and Automated_metrics.py to have the correct meeting date and correct_vote variable.**
 
-The bny_capstone_crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+run this from the bny_capstone_crew directory:
+```bash
+$ chmod +x run_crew.sh
+```
+and any time you change any scripts, rerun the above CLI before running:
 
-## Support
+```bash
+$ ./run_crew.sh
+```
 
-For support, questions, or feedback regarding the BnyCapstoneCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+**The output will be in results.txt, but check all 5 summary json files to ensure formatting**
 
 
-### Here are three consolidated FOMC voting members that encapsulate the personalities and decision-making patterns of the original 12 members:
+## Here are three consolidated FOMC voting members that encapsulate the personalities and decision-making patterns of the original 12 members:
 
 ### 1. Chair Jerome Powell (Consensus Leader)
 - **Role:** Chair of the Federal Open Market Committee

@@ -4,6 +4,7 @@ from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 from crewai.knowledge.source.csv_knowledge_source import CSVKnowledgeSource
 from crewai import LLM
 import os
+import os
 
 ### Add knowledge source, must add pdfs and csv in knoweldege folder
 date = "24_11"
