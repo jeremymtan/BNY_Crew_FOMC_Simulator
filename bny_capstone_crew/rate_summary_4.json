@@ -1,1 +1,14 @@
-{"exact_historical_dates_referenced": ["2022-2023", "2008"], "exact_metrics_mentioned": ["CPI", "PCE Price Index", "unemployment rate", "GDP growth rate", "financial crisis indicator"], "rate_votes": [{"member": "Federal Open Market Committee Chair", "vote": "0.00%"}, {"member": "Vice Chair of the Federal Reserve", "vote": "0.00%"}, {"member": "Regional and Regulatory Representative", "vote": "0.00%"}], "rate_predictions": [{"member": "Federal Open Market Committee Chair", "prediction": "3.75%"}, {"member": "Vice Chair of the Federal Reserve", "prediction": "3.75%"}, {"member": "Regional and Regulatory Representative", "prediction": "3.75%"}]}
+{
+    "exact_historical_dates_referenced": ["2015-2015", "2018-2018", "1970-1980"],
+    "exact_metrics_mentioned": ["Federal Funds Target rate", "inflation rate", "unemployment rate"],
+    "rate_votes": [
+        {"member": "Regional Pragmatist", "vote": "0.25%"},
+        {"member": "Academic Balancer", "vote": "0.25%"},
+        {"member": "Central Policymaker", "vote": "0.25%"}
+    ],
+    "rate_predictions": [
+        {"member": "Regional Pragmatist", "prediction": "3.25%"},
+        {"member": "Academic Balancer", "prediction": "3.25%"},
+        {"member": "Central Policymaker", "prediction": "3.25%"}
+    ]
+}

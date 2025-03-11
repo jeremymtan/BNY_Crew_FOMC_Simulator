@@ -1,1 +1,14 @@
-{"exact_historical_dates_referenced": ["1970s-1980s", "Great Recession"], "exact_metrics_mentioned": ["CPI", "PCE Price Index", "unemployment rate", "GDP growth rate"], "rate_votes": [{"member": "Federal Open Market Committee Chair", "vote": "0.00%"}, {"member": "Vice Chair of the Federal Reserve", "vote": "0.00%"}, {"member": "Regional and Regulatory Representative", "vote": "0.00%"}], "rate_predictions": [{"member": "Federal Open Market Committee Chair", "prediction": "3.75-4.0%"}, {"member": "Vice Chair of the Federal Reserve", "prediction": "3.75-4.0%"}, {"member": "Regional and Regulatory Representative", "prediction": "3.75-4.0%"}]}
+{
+    "exact_historical_dates_referenced": ["2015-2016", "2018-2018", "1970-1980"],
+    "exact_metrics_mentioned": ["Inflation Rate", "Unemployment Rate", "GDP Growth Rate"],
+    "rate_votes": [
+        {"member": "Regional Pragmatist", "vote": "0.25%"},
+        {"member": "Academic Balancer", "vote": "0.25%"},
+        {"member": "Central Policymaker", "vote": "0.25%"}
+    ],
+    "rate_predictions": [
+        {"member": "Regional Pragmatist", "prediction": "3.25%"},
+        {"member": "Academic Balancer", "prediction": "3.25%"},
+        {"member": "Central Policymaker", "prediction": "3.25%"}
+    ]
+}

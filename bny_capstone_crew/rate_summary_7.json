@@ -1,6 +1,6 @@
 {
-    "exact_historical_dates_referenced": ["2015-2018", "late 1990s"],
-    "exact_metrics_mentioned": ["Unemployment Rate", "Inflation Rate", "Consumer Price Index (CPI)", "GDP Growth Rate", "MICH Inflation Expectation"],
+    "exact_historical_dates_referenced": ["2015-2015", "2004-2004", "2018-2018", "1994-1994"],
+    "exact_metrics_mentioned": ["Federal Funds Rate", "Core Inflation", "Unemployment Rate", "MICH Inflation Expectation"],
     "rate_votes": [
         {"member": "Regional Pragmatist", "vote": "0.25%"},
         {"member": "Academic Balancer", "vote": "0.25%"},
