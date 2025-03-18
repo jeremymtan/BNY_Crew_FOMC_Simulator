@@ -7,11 +7,11 @@ import os
 import os
 
 ### Add knowledge source, must add pdfs and csv in knoweldege folder
-date = "24_11"
+date = "25_3"
 pdf_source = PDFKnowledgeSource(
     file_paths=[
         f"{date} beige book.pdf",
-        f"{date} current macro.pdf",
+        f"{date} current macro 1.pdf",
         f"{date} dot plot description.pdf",
         "Fed Explanation.pdf",
     ]
@@ -102,23 +102,41 @@ class BnyCapstoneCrew:
 
     # Define economist tasks
     @task
+    def probabilities_comment(self) -> Task:
+        return Task(
+            description="""
+            Make a comment about the implied probabilities in the current macro 1.pdf file.
+            Explain what this means, this data comes from the CME Fedwatch website.
+            """,
+            agent=self.analyst(),
+            expected_output="A comment about the implied probabilities in the current macro 1.pdf file, explaining what it means.",
+        )
+
+    @task
     def get_economic_suggestions(self) -> Task:
         return Task(
             description="""
             As the Fed's chief economist, analyze the current economic situation using the Beige Book, 
-            historical macro data, and current economic indicators provided to you. 
+            historical macro data, and current economic indicators provided to you. Pay attention to the 
+            probabilities implied by the futures market, mentioned in the current macro 1.pdf file.
             
             Based on your analysis, propose 3 potential monetary policy solutions, each with:
             1. A title that includes a specific interest rate plan with numerical adjustment
-            3. Detailed justification based on economic data
-            4. Projected economic outcomes
+            2. Detailed justification based on economic data
+            3. Projected economic outcomes
+            4. A reference to the implied probabilities of rate hikes and rate cuts mentioned
+            in the knowledge material.
             
-            Your solutions should be comprehensive and well-reasoned, considering inflation, 
-            employment, GDP growth, and financial stability.
+            You must not describe any preliminary leanings or advice on which option is best.
             
             Format your response clearly with each solution separated and numbered.
+            Never give options that have a 0 percent implied probability. For example, if the 
+            implied probabilities show a 0 percent chance of a rate hike, none of the options 
+            should include increasing the rate. A 100% chance of a rate hike or a rate cut does
+            not mean that the market favors a steady rate.
             """,
             agent=self.economist(),
+            context=[self.probabilities_comment()],
             expected_output="A comprehensive analysis with 3-5 detailed monetary policy solutions that include the numerical Fed Funds target rate adjustment in the title of each solution.",
         )
 
@@ -129,7 +147,8 @@ class BnyCapstoneCrew:
             description="""
             As Regional Pragmatists, analyze the economist's proposed monetary policy solutions.
             Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. 
+            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
+            mentioned in the current macro 1.pdf file.
             
             Consider:
             1. The current economic data from the Beige Book
@@ -146,7 +165,7 @@ class BnyCapstoneCrew:
             End with your preliminary thoughts on which direction you're leaning and why.
             """,
             agent=self.Regional_Pragmatists(),
-            context=[self.get_economic_suggestions()],
+            context=[self.get_economic_suggestions(), self.probabilities_comment()],
             expected_output="Regional Pragmatists' detailed analysis of proposed solutions with initial position, specific historical comparisons to exact dates, and a prediction for the Fed Funds target rate at the end of 2025.",
         )
 
@@ -156,7 +175,8 @@ class BnyCapstoneCrew:
             description="""
             As Academic Balancers, analyze the economist's proposed monetary policy solutions.
             Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. 
+            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
+            mentioned in the current macro 1.pdf file.
             
             Consider:
             1. The current economic data from the Beige Book
@@ -173,7 +193,7 @@ class BnyCapstoneCrew:
             End with your preliminary thoughts on which direction you're leaning and why.
             """,
             agent=self.Academic_Balancers(),
-            context=[self.get_economic_suggestions()],
+            context=[self.get_economic_suggestions(), self.probabilities_comment()],
             expected_output="Academic Balancers' detailed analysis of proposed solutions with initial position, specific historical comparisons to exact dates, and a prediction for the Fed Funds target rate at the end of 2025.",
         )
 
@@ -183,7 +203,8 @@ class BnyCapstoneCrew:
             description="""
             As Central Policymakers, analyze the economist's proposed monetary policy solutions.
             Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. 
+            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
+            mentioned in the current macro 1.pdf file.
             
             Consider:
             1. The current economic data from the Beige Book
@@ -200,7 +221,7 @@ class BnyCapstoneCrew:
             End with your preliminary thoughts on which direction you're leaning and why.
             """,
             agent=self.Central_Policymakers(),
-            context=[self.get_economic_suggestions()],
+            context=[self.get_economic_suggestions(), self.probabilities_comment()],
             expected_output="Central Policymakers' detailed analysis of proposed solutions with initial position, specific historical comparisons to exact dates, and a prediction for the Fed Funds target rate at the end of 2025.",
         )
 
@@ -536,6 +557,7 @@ class BnyCapstoneCrew:
             ],
             tasks=[
                 # First get economic suggestions
+                self.probabilities_comment(),
                 self.get_economic_suggestions(),
                 # Then have each member analyze the suggestions
                 self.regional_analysis(),
