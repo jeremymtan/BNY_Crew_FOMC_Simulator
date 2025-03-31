@@ -3,24 +3,129 @@ from collections import Counter
 import numpy as np
 import glob
 
-meeting_code = "24_11"
+meeting_code = "23_5"
 
 code2date = {
+    "23_2": "Feb 2023",
     "23_5": "May 2023",
     "23_7": "July 2023",
     "24_3": "March 2024",
     "24_9": "September 2024",
     "24_11": "November 2024",
+    "24_12": "December 2024",
+    "25_3": "March 2025",
 }
 code2vote = {
+    "23_2": ["0.25%", "+0.25", "0.25", "+0.25"],
     "23_5": ["0.25%", "+0.25", "0.25", "+0.25"],
     "23_7": ["0.25%", "+0.25", "0.25", "+0.25"],
     "24_3": ["0.00%", "-0.00%", "+0.00%", "0.00", "-0.00", "+0.00"],
     "24_9": ["-0.50%", "-0.50"],
     "24_11": ["-0.25%", "-0.25"],
+    "24_12": ["-0.25%", "-0.25"],
+    "25_3": ["0.00%", "-0.00%", "+0.00%", "0.00", "-0.00", "+0.00"],
+}
+
+code2pred = {
+    "23_2": [
+        "3.00%-3.25%",
+        "3.00%",
+        "3.25%",
+        "3.00-3.25%",
+        "3.00",
+        "3.25",
+        "3.00-3.25",
+        "2.50%-2.75%",
+        "2.50%",
+        "2.75%",
+        "2.50-2.75%",
+        "2.50",
+        "2.75",
+        "2.50-2.75",
+    ],
+    "23_5": [
+        "2.75%-3.00%",
+        "2.75%",
+        "3.25%",
+        "2.75-3.00%",
+        "2.75",
+        "3.25",
+        "2.75-3.00",
+        "3.00%-3.25%",
+        "3.00%",
+        "3.00-3.25%",
+        "3.00",
+        "3.00-3.25",
+        "2.75%-3.25%",
+        "2.75-3.25%",
+        "2.75-3.25",
+    ],
+    "23_7": [
+        "3.25%-3.50%",
+        "3.25%",
+        "3.50%",
+        "3.25-3.50%",
+        "3.25",
+        "3.50",
+        "3.25-3.50",
+        "3.00%-3.25%",
+        "3.00%",
+        "3.00-3.25%",
+        "3.00",
+        "3.00-3.25",
+        "3.00%-3.50%",
+        "3.00-3.50%",
+        "3.00-3.50",
+    ],
+    "24_3": [
+        "3.75%-4.00%",
+        "3.75%",
+        "4.00%",
+        "3.75-4.00%",
+        "3.75",
+        "4.00",
+        "3.75-4.00",
+    ],
+    "24_9": [
+        "3.25%-3.50%",
+        "3.25%",
+        "3.50%",
+        "3.25-3.50%",
+        "3.25",
+        "3.50",
+        "3.25-3.50",
+    ],
+    "24_11": [
+        "3.25%-3.50%",
+        "3.25%",
+        "3.50%",
+        "3.25-3.50%",
+        "3.25",
+        "3.50",
+        "3.25-3.50",
+    ],
+    "24_12": [
+        "3.75%-4.00%",
+        "3.75%",
+        "4.00%",
+        "3.75-4.00%",
+        "3.75",
+        "4.00",
+        "3.75-4.00",
+    ],
+    "25_3": [
+        "3.75%-4.00%",
+        "3.75%",
+        "4.00%",
+        "3.75-4.00%",
+        "3.75",
+        "4.00",
+        "3.75-4.00",
+    ],
 }
 meeting_date = code2date[meeting_code]
 correct_vote = code2vote[meeting_code]
+correct_pred = code2pred[meeting_code]
 
 # Step 1: Get a list of all JSON files
 json_files = glob.glob("rate_summary*.json")  # Adjust pattern to match your file names
@@ -39,6 +144,7 @@ for file in json_files:
 votes_by_member = {}
 predictions_by_member = {}
 all_votes = []
+all_preds = []
 all_dates = []
 all_metrics = []
 
@@ -65,6 +171,7 @@ for summary in rate_summaries:
 
         # Append vote to the corresponding member
         predictions_by_member[member].append(prediction_value)
+        all_preds.append(prediction_value)
     all_dates.append(summary["exact_historical_dates_referenced"])
     all_metrics.append(summary["exact_metrics_mentioned"])
 
@@ -99,7 +206,11 @@ correct_vote_pct = (
     100 * sum([vote in correct_vote for vote in all_votes]) / len(all_votes)
 )
 print(f"correct rate vote percentage = {correct_vote_pct}%")
-
+correct_pred_pct = (
+    100 * sum([pred in correct_pred for pred in all_preds]) / len(all_preds)
+)
+print(f"correct rate prediction percentage = {correct_pred_pct}%")
+print(f"total accuracy = {(correct_pred_pct + correct_vote_pct)*0.5}%")
 print()
 print("All dates mentioned:")
 for dates in all_dates:

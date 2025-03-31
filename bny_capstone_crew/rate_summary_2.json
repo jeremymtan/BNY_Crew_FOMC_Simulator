@@ -1,14 +1,44 @@
 {
-    "exact_historical_dates_referenced": ["2001-2001", "2008-2008"],
-    "exact_metrics_mentioned": ["Federal Funds Rate", "Unemployment Rate", "GDP Growth", "Inflation Expectations"],
+    "exact_historical_dates_referenced": [
+        "2010-2015",
+        "2016-2019",
+        "2015",
+        "2018",
+        "2015",
+        "2016",
+        "2017"
+    ],
+    "exact_metrics_mentioned": [
+        "GDP growth at 2.1%",
+        "easing inflation",
+        "stable GDP growth"
+    ],
     "rate_votes": [
-        {"member": "Regional Pragmatist", "vote": "-0.50%"},
-        {"member": "Academic Balancer", "vote": "-0.50%"},
-        {"member": "Central Policymaker", "vote": "-0.50%"}
+        {
+            "member": "Regional Pragmatist",
+            "vote": "0.00%"
+        },
+        {
+            "member": "Academic Balancer",
+            "vote": "0.00%"
+        },
+        {
+            "member": "Central Policymaker",
+            "vote": "0.00%"
+        }
     ],
     "rate_predictions": [
-        {"member": "Regional Pragmatist", "prediction": "3.00%"},
-        {"member": "Academic Balancer", "prediction": "3.00%"},
-        {"member": "Central Policymaker", "prediction": "3.00%"}
+        {
+            "member": "Regional Pragmatist",
+            "prediction": "3.00%"
+        },
+        {
+            "member": "Academic Balancer",
+            "prediction": "3.00%"
+        },
+        {
+            "member": "Central Policymaker",
+            "prediction": "3.00%"
+        }
     ]
 }

@@ -1,14 +1,41 @@
 {
-    "exact_historical_dates_referenced": ["2008-2008", "2020-2020"],
-    "exact_metrics_mentioned": ["GDP growth", "unemployment rate", "inflation expectation"],
+    "exact_historical_dates_referenced": [
+        "2015-2018"
+    ],
+    "exact_metrics_mentioned": [
+        "Maintain current rate",
+        "Stability",
+        "Economic continuity",
+        "Preventing inflation",
+        "Gradual recovery",
+        "3.00%"
+    ],
     "rate_votes": [
-        {"member": "Regional Pragmatist", "vote": "-0.50%"},
-        {"member": "Academic Balancer", "vote": "-0.50%"},
-        {"member": "Central Policymaker", "vote": "-0.50%"}
+        {
+            "member": "Regional Pragmatist",
+            "vote": "0.00%"
+        },
+        {
+            "member": "Academic Balancer",
+            "vote": "0.00%"
+        },
+        {
+            "member": "Central Policymaker",
+            "vote": "0.00%"
+        }
     ],
     "rate_predictions": [
-        {"member": "Regional Pragmatist", "prediction": "3.00%"},
-        {"member": "Academic Balancer", "prediction": "3.00%"},
-        {"member": "Central Policymaker", "prediction": "3.00%"}
+        {
+            "member": "Regional Pragmatist",
+            "prediction": "3.00%"
+        },
+        {
+            "member": "Academic Balancer",
+            "prediction": "3.00%"
+        },
+        {
+            "member": "Central Policymaker",
+            "prediction": "3.00%"
+        }
     ]
 }

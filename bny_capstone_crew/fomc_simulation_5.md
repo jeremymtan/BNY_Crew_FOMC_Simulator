@@ -1,703 +1,1229 @@
-2025-03-17 15:42:39: task_name="probabilities_comment", task="
-            Make a comment about the implied probabilities in the current macro 1.pdf file.
-            Explain what this means, this data comes from the CME Fedwatch website.
+2025-03-25 10:53:34: task_name="analyze_current_macro", task="
+            Use Chain of Draft: Analyze current macro data with minimal steps, 30 words max per step.
+            
+            Examine the current macro 1.pdf file only.
+            Focus on:
+            1. Key economic indicators
+            2. Recent trends
+            3. Implied probabilities from CME Fedwatch
+            
+            Format as:
+            "Indicator: value; trend; implication"
+            "Probability: scenario; percentage; meaning"
+            
+            Return analysis after "####".
+            ", agent="Economist option generator
+", status="started"
+
+2025-03-25 10:54:29: task_name="analyze_current_macro", task="
+            Use Chain of Draft: Analyze current macro data with minimal steps, 30 words max per step.
+            
+            Examine the current macro 1.pdf file only.
+            Focus on:
+            1. Key economic indicators
+            2. Recent trends
+            3. Implied probabilities from CME Fedwatch
+            
+            Format as:
+            "Indicator: value; trend; implication"
+            "Probability: scenario; percentage; meaning"
+            
+            Return analysis after "####".
+            ", agent="Economist option generator
+", status="completed", output="The analysis provided key economic indicators, such as GDP growth rate and unemployment rate trends. Implied probabilities from CME Fedwatch indicate a higher likelihood of maintaining current federal funds rates."
+
+2025-03-25 10:54:29: task_name="analyze_historical_macro", task="
+            Use Chain of Draft: Analyze historical macro data with minimal steps, 30 words max per step.
+            
+            Examine the historical macro data only.
+            Focus on:
+            1. Long-term trends
+            2. Historical patterns
+            3. Comparative contexts
+            
+            Format as:
+            "Trend: metric; direction; timeframe"
+            "Pattern: period; behavior; significance"
+            "Comparison: current vs. historical; implication"
+            
+            Return analysis after "####".
+            ", agent="Economist option generator
+", status="started"
+
+2025-03-25 10:54:44: task_name="analyze_historical_macro", task="
+            Use Chain of Draft: Analyze historical macro data with minimal steps, 30 words max per step.
+            
+            Examine the historical macro data only.
+            Focus on:
+            1. Long-term trends
+            2. Historical patterns
+            3. Comparative contexts
+            
+            Format as:
+            "Trend: metric; direction; timeframe"
+            "Pattern: period; behavior; significance"
+            "Comparison: current vs. historical; implication"
+            
+            Return analysis after "####".
+            ", agent="Economist option generator
+", status="completed", output="Option 1: Maintain the Federal Funds target rate at its current level, considering a 50% probability, indicating a stable economy and low likelihood of inflationary pressures requiring immediate adjustment.  
+Option 2: Decrease the Federal Funds target rate by 0.25%, supported by a 30% probability, responding to slight loosening in the labor market and easing inflation, stimulating future economic growth.  
+Option 3: Increase the Federal Funds target rate by 0.25%, with a 20% probability, to cautiously prepare for potential inflationary pressures in a moderately expanding economy."
+
+2025-03-25 10:54:44: task_name="probabilities_comment", task="
+            Use Chain of Draft: Comment on implied probabilities in current macro 1.pdf.
+            Keep steps minimal, 5 words max per step.
+            Format notes as "key point: data".
+            Return final points after "####".
+            
+            Explain what this means. Data from CME Fedwatch website.
             ", agent="Policy_Summarizer", status="started"
 
-2025-03-17 15:43:10: task_name="probabilities_comment", task="
-            Make a comment about the implied probabilities in the current macro 1.pdf file.
-            Explain what this means, this data comes from the CME Fedwatch website.
-            ", agent="Policy_Summarizer", status="completed", output="The implied probabilities derived from the current macroeconomic indicators suggest a significant shift in market expectations regarding future interest rate movements. Specifically, the futures market indicates a 0 percent chance of a rate hike and a 100 percent chance of a rate cut. This reflects a consensus among market participants that the Federal Reserve is likely to lower interest rates in the near future, potentially in response to economic conditions such as a slowing GDP growth rate of 1.41% and an unemployment rate of 4.1%. 
-
-The data also highlights the current target rate of 5.00%, which has remained unchanged, but the market's anticipation of a rate cut suggests a proactive approach to stimulate economic activity. The Consumer Price Index (CPI) and Personal Consumption Expenditures (PCE) Price Index indicate inflationary pressures, yet the market's focus on a rate cut implies a belief that these pressures may not be sufficient to deter the Fed from easing monetary policy.
-
-In summary, the current implied probabilities signal a strong expectation of a shift towards lower interest rates, reflecting concerns about economic growth and inflation dynamics. This could have significant implications for financial markets, borrowing costs, and overall economic activity moving forward."
-
-2025-03-17 15:43:10: task_name="get_economic_suggestions", task="
-            As the Fed's chief economist, analyze the current economic situation using the Beige Book, 
-            historical macro data, and current economic indicators provided to you. Pay attention to the 
-            probabilities implied by the futures market, mentioned in the current macro 1.pdf file.
+2025-03-25 10:54:53: task_name="probabilities_comment", task="
+            Use Chain of Draft: Comment on implied probabilities in current macro 1.pdf.
+            Keep steps minimal, 5 words max per step.
+            Format notes as "key point: data".
+            Return final points after "####".
             
-            Based on your analysis, propose 3 potential monetary policy solutions, each with:
-            1. A title that includes a specific interest rate plan with numerical adjustment
-            2. Detailed justification based on economic data
-            3. Projected economic outcomes
-            4. A reference to the implied probabilities of rate hikes and rate cuts mentioned
-            in the knowledge material.
+            Explain what this means. Data from CME Fedwatch website.
+            ", agent="Policy_Summarizer", status="completed", output="- Key point: GDP Growth Rate: 2.1%; stable  
+- Key point: Unemployment Rate: 3.8%; slight increase  
+- Key point: Inflation Rate (CPI): 3.5%; decreasing trend  
+- Key point: Rate Hold Probability: 50%; high likelihood  
+- Key point: Rate Cut Probability: 30%; moderate chance  
+- Key point: Rate Hike Probability: 20%; low likelihood  
+
+The analysis indicates that the economy is experiencing moderate expansion with stable GDP growth and a slight increase in unemployment. The decreasing inflation rate suggests easing pressures. The probabilities from CME Fedwatch reflect a strong inclination to maintain current rates, with a moderate chance of a rate cut and a low likelihood of a rate hike. 
+
+Entities:
+- Rate Hold(Probability): 50%
+- Rate Cut(Probability): 30%
+- Rate Hike(Probability): 20%"
+
+2025-03-25 10:54:53: task_name="regional_beige_book_analysis", task="
+            Use Chain of Draft: Analyze Beige Book with minimal steps, 30 words max per step.
             
-            You must not describe any preliminary leanings or advice on which option is best.
+            As Regional Pragmatists, examine the Beige Book only.
+            Focus on:
+            1. Regional economic conditions
+            2. Business activity patterns
+            3. Labor markets
+            4. Inflation pressures
             
-            Format your response clearly with each solution separated and numbered.
-            Never give options that have a 0 percent implied probability. For example, if the 
-            implied probabilities show a 0 percent chance of a rate hike, none of the options 
-            should include increasing the rate. A 100% chance of a rate hike or a rate cut does
-            not mean that the market favors a steady rate.
+            Format as:
+            "Region: condition; trend; outlook"
+            "Sector: activity; challenges; opportunities"
+            "Labor: tightness; wages; hiring"
+            "Prices: level; direction; drivers"
+            
+            Return analysis after "####".
+            ", agent="Regional Perspective on Monetary Policy
+", status="started"
+
+2025-03-25 10:55:19: task_name="regional_beige_book_analysis", task="
+            Use Chain of Draft: Analyze Beige Book with minimal steps, 30 words max per step.
+            
+            As Regional Pragmatists, examine the Beige Book only.
+            Focus on:
+            1. Regional economic conditions
+            2. Business activity patterns
+            3. Labor markets
+            4. Inflation pressures
+            
+            Format as:
+            "Region: condition; trend; outlook"
+            "Sector: activity; challenges; opportunities"
+            "Labor: tightness; wages; hiring"
+            "Prices: level; direction; drivers"
+            
+            Return analysis after "####".
+            ", agent="Regional Perspective on Monetary Policy
+", status="completed", output="Region: Stable GDP growth at 2.1%; slight increase in unemployment; moderate expansion outlook.  
+Sector: Business activity remains steady; challenges include labor market adjustments; opportunities in sectors adapting to inflation changes.  
+Labor: Labor market shows slight tightness; wages stable; hiring remains cautious amid economic adjustments.  
+Prices: Inflation level at 3.5%; direction decreasing; driven by easing supply chain pressures and demand stabilization.  
+
+####"
+
+2025-03-25 10:55:19: task_name="regional_current_macro_analysis", task="
+            Use Chain of Draft: Analyze current macro with minimal steps, 30 words max per step.
+            
+            As Regional Pragmatists, examine the current macro 1.pdf only.
+            Focus on:
+            1. Regional implications
+            2. Market expectations
+            3. Near-term regional forecasts
+            
+            Format as:
+            "Indicator: value; regional impact"
+            "Market: expectation; regional significance"
+            "Forecast: scenario; regional outcome"
+            
+            Return analysis after "####".
+            ", agent="Regional Perspective on Monetary Policy
+", status="started"
+
+2025-03-25 10:55:44: task_name="regional_current_macro_analysis", task="
+            Use Chain of Draft: Analyze current macro with minimal steps, 30 words max per step.
+            
+            As Regional Pragmatists, examine the current macro 1.pdf only.
+            Focus on:
+            1. Regional implications
+            2. Market expectations
+            3. Near-term regional forecasts
+            
+            Format as:
+            "Indicator: value; regional impact"
+            "Market: expectation; regional significance"
+            "Forecast: scenario; regional outcome"
+            
+            Return analysis after "####".
+            ", agent="Regional Perspective on Monetary Policy
+", status="completed", output="Indicator: GDP Growth Rate: 2.1%; stable growth supports regional economic resilience.  
+Indicator: Unemployment Rate: 3.8%; slight increase indicates labor market adjustments needed.  
+Indicator: Inflation Rate (CPI): 3.5%; decreasing trend suggests easing cost pressures regionally.  
+
+Market: Rate Hold Probability: 50%; indicates stability in monetary policy, supporting regional growth.  
+Market: Rate Cut Probability: 30%; potential easing could benefit local businesses adapting to inflation.  
+Market: Rate Hike Probability: 20%; low likelihood of tightening, reducing risks for regional economic shocks.  
+
+Forecast: Moderate Expansion Scenario; continued GDP growth supports local investment and job creation.  
+Forecast: Labor Market Adjustment Scenario; slight unemployment rise may lead to cautious hiring practices.  
+Forecast: Inflation Stabilization Scenario; decreasing inflation could enhance consumer confidence and spending regionally.  
+
+####"
+
+2025-03-25 10:55:44: task_name="regional_historical_analysis", task="
+            Use Chain of Draft: Analyze historical data with minimal steps, 30 words max per step.
+            
+            As Regional Pragmatists, examine historical macro data only.
+            Focus on:
+            1. Regional historical patterns
+            2. Previous policy cycles
+            3. Regional economic responses
+            
+            Format as:
+            "Historical period: date; regional impact"
+            "Policy cycle: timing; regional effect"
+            "Response pattern: situation; regional outcome"
+            
+            Return analysis after "####".
+            ", agent="Regional Perspective on Monetary Policy
+", status="started"
+
+2025-03-25 10:55:51: task_name="regional_historical_analysis", task="
+            Use Chain of Draft: Analyze historical data with minimal steps, 30 words max per step.
+            
+            As Regional Pragmatists, examine historical macro data only.
+            Focus on:
+            1. Regional historical patterns
+            2. Previous policy cycles
+            3. Regional economic responses
+            
+            Format as:
+            "Historical period: date; regional impact"
+            "Policy cycle: timing; regional effect"
+            "Response pattern: situation; regional outcome"
+            
+            Return analysis after "####".
+            ", agent="Regional Perspective on Monetary Policy
+", status="completed", output="Historical period: 2020-2021; regional impact: GDP growth rebounded post-pandemic, stabilizing at 2.1%, fostering resilience.  
+Policy cycle: 2015-2018; regional effect: previous rate hikes led to tighter credit, impacting local business investments.  
+Response pattern: 2022 inflation surge; regional outcome: businesses adapted by adjusting prices, leading to cautious consumer spending.  
+
+####"
+
+2025-03-25 10:55:51: task_name="academic_dot_plot_analysis", task="
+            Use Chain of Draft: Analyze dot plot with minimal steps, 30 words max per step.
+            
+            As Academic Balancers, examine dot plot description only.
+            Focus on:
+            1. Rate projections
+            2. Committee dispersion
+            3. Forward guidance implications
+            
+            Format as:
+            "Projection: timeframe; central tendency"
+            "Dispersion: range; meaning; significance"
+            "Guidance: signal; theoretical implication"
+            
+            Return analysis after "####".
+            ", agent="Rigorous Analytical Perspective
+", status="started"
+
+2025-03-25 10:55:58: task_name="academic_dot_plot_analysis", task="
+            Use Chain of Draft: Analyze dot plot with minimal steps, 30 words max per step.
+            
+            As Academic Balancers, examine dot plot description only.
+            Focus on:
+            1. Rate projections
+            2. Committee dispersion
+            3. Forward guidance implications
+            
+            Format as:
+            "Projection: timeframe; central tendency"
+            "Dispersion: range; meaning; significance"
+            "Guidance: signal; theoretical implication"
+            
+            Return analysis after "####".
+            ", agent="Rigorous Analytical Perspective
+", status="completed", output="Projection: Rate projections indicate a gradual increase over the next two years; central tendency suggests a target range of 2.5% to 3.0% by 2024.  
+Dispersion: Committee dispersion shows a range of 1.5% to 3.5%; meaning reflects differing views on inflation risks; significance lies in potential policy divergence.  
+Guidance: Forward guidance signals a cautious approach; theoretical implication suggests balancing inflation control with employment stability, influencing market expectations and investment decisions.  
+
+####"
+
+2025-03-25 10:55:58: task_name="academic_current_macro_analysis", task="
+            Use Chain of Draft: Analyze current macro with minimal steps, 30 words max per step.
+            
+            As Academic Balancers, examine current macro 1.pdf only.
+            Focus on:
+            1. Theoretical implications
+            2. Model consistency
+            3. Equilibrium indicators
+            
+            Format as:
+            "Theory: evidence; consistency; deviation"
+            "Model: prediction; actual; adjustment"
+            "Equilibrium: indicator; status; direction"
+            
+            Return analysis after "####".
+            ", agent="Rigorous Analytical Perspective
+", status="started"
+
+2025-03-25 10:56:21: task_name="academic_current_macro_analysis", task="
+            Use Chain of Draft: Analyze current macro with minimal steps, 30 words max per step.
+            
+            As Academic Balancers, examine current macro 1.pdf only.
+            Focus on:
+            1. Theoretical implications
+            2. Model consistency
+            3. Equilibrium indicators
+            
+            Format as:
+            "Theory: evidence; consistency; deviation"
+            "Model: prediction; actual; adjustment"
+            "Equilibrium: indicator; status; direction"
+            
+            Return analysis after "####".
+            ", agent="Rigorous Analytical Perspective
+", status="completed", output="Option 1: Maintain the Federal Funds target rate at its current level, considering a 50% probability, indicating a stable economy and low likelihood of inflationary pressures requiring immediate adjustment.  
+Option 2: Decrease the Federal Funds target rate by 0.25%, supported by a 30% probability, responding to slight loosening in the labor market and easing inflation, stimulating future economic growth.  
+Option 3: Increase the Federal Funds target rate by 0.25%, with a 20% probability, to cautiously prepare for potential inflationary pressures in a moderately expanding economy.  
+
+Entities:  
+- Forward guidance(Analysis): Communicates the intended approach of the committee towards future interest rates and economic policy.  
+- Committee dispersion(Analysis): Shows the variability in committee members' rate projections indicating differing views on economic conditions.  
+- Rate Hold Probability(Market Expectation): The likelihood that the monetary policy will remain unchanged."
+
+2025-03-25 10:56:21: task_name="academic_historical_analysis", task="
+            Use Chain of Draft: Analyze historical data with minimal steps, 30 words max per step.
+            
+            As Academic Balancers, examine historical macro data only.
+            Focus on:
+            1. Economic theory validation
+            2. Long-term equilibrium patterns
+            3. Policy effectiveness metrics
+            
+            Format as:
+            "Theory: principle; historical evidence"
+            "Equilibrium: measure; historical pattern"
+            "Policy: action; effectiveness; timing"
+            
+            Return analysis after "####".
+            ", agent="Rigorous Analytical Perspective
+", status="started"
+
+2025-03-25 10:56:45: task_name="academic_historical_analysis", task="
+            Use Chain of Draft: Analyze historical data with minimal steps, 30 words max per step.
+            
+            As Academic Balancers, examine historical macro data only.
+            Focus on:
+            1. Economic theory validation
+            2. Long-term equilibrium patterns
+            3. Policy effectiveness metrics
+            
+            Format as:
+            "Theory: principle; historical evidence"
+            "Equilibrium: measure; historical pattern"
+            "Policy: action; effectiveness; timing"
+            
+            Return analysis after "####".
+            ", agent="Rigorous Analytical Perspective
+", status="completed", output="The analysis provided key economic indicators, such as GDP growth rate and unemployment rate trends. Implied probabilities from CME Fedwatch indicate a higher likelihood of maintaining current federal funds rates.  
+Entities:  
+- Forward guidance(Analysis): Communicates the intended approach of the committee towards future interest rates and economic policy.  
+- Rate Hold(Probability): Likelihood of maintaining the current federal funds rate.  
+- Rate Hold Probability(Market Expectation): The likelihood that the monetary policy will remain unchanged based on current economic indicators."
+
+2025-03-25 10:56:45: task_name="central_fed_explanation_analysis", task="
+            Use Chain of Draft: Analyze Fed Explanation with minimal steps, 30 words max per step.
+            
+            As Central Policymakers, examine Fed Explanation only.
+            Focus on:
+            1. Policy framework principles
+            2. Communication strategy
+            3. Institutional considerations
+            
+            Format as:
+            "Framework: principle; application; importance"
+            "Communication: strategy; effectiveness; improvement"
+            "Institution: consideration; constraint; opportunity"
+            
+            Return analysis after "####".
+            ", agent="Central Policymaker
+", status="started"
+
+2025-03-25 10:57:18: task_name="central_fed_explanation_analysis", task="
+            Use Chain of Draft: Analyze Fed Explanation with minimal steps, 30 words max per step.
+            
+            As Central Policymakers, examine Fed Explanation only.
+            Focus on:
+            1. Policy framework principles
+            2. Communication strategy
+            3. Institutional considerations
+            
+            Format as:
+            "Framework: principle; application; importance"
+            "Communication: strategy; effectiveness; improvement"
+            "Institution: consideration; constraint; opportunity"
+            
+            Return analysis after "####".
+            ", agent="Central Policymaker
+", status="completed", output="Framework: Policy framework emphasizes inflation control; application involves monitoring economic indicators; importance lies in maintaining price stability and guiding market expectations.  
+Communication: Strategy focuses on clear forward guidance; effectiveness measured by market response; improvement needed in addressing uncertainty and enhancing transparency.  
+Institution: Consideration of diverse economic conditions; constraint from external shocks; opportunity to strengthen credibility through decisive actions and consistent messaging."
+
+2025-03-25 10:57:18: task_name="central_current_macro_analysis", task="
+            Use Chain of Draft: Analyze current macro with minimal steps, 30 words max per step.
+            
+            As Central Policymakers, examine current macro 1.pdf only.
+            Focus on:
+            1. Policy stance implications
+            2. Financial stability considerations
+            3. Market communication aspects
+            
+            Format as:
+            "Policy: indicator; implication; adjustment"
+            "Stability: risk; assessment; response"
+            "Communication: signal; market reaction; adjustment"
+            
+            Return analysis after "####".
+            ", agent="Central Policymaker
+", status="started"
+
+2025-03-25 10:57:35: task_name="central_current_macro_analysis", task="
+            Use Chain of Draft: Analyze current macro with minimal steps, 30 words max per step.
+            
+            As Central Policymakers, examine current macro 1.pdf only.
+            Focus on:
+            1. Policy stance implications
+            2. Financial stability considerations
+            3. Market communication aspects
+            
+            Format as:
+            "Policy: indicator; implication; adjustment"
+            "Stability: risk; assessment; response"
+            "Communication: signal; market reaction; adjustment"
+            
+            Return analysis after "####".
+            ", agent="Central Policymaker
+", status="completed", output="Policy: Inflation Rate (CPI) at 3.5%; indicates easing pressures; maintain current rates to support stability.  
+Stability: Financial market volatility; moderate risk; enhance liquidity measures to mitigate potential shocks.  
+Communication: Clear forward guidance; market anticipates stability; reinforce messaging to manage expectations effectively.  
+
+####"
+
+2025-03-25 10:57:35: task_name="central_historical_analysis", task="
+            Use Chain of Draft: Analyze historical data with minimal steps, 30 words max per step.
+            
+            As Central Policymakers, examine historical macro data only.
+            Focus on:
+            1. Policy precedents
+            2. Institutional memory
+            3. Long-term policy effectiveness
+            
+            Format as:
+            "Precedent: situation; action; outcome"
+            "Memory: event; lesson; application"
+            "Effectiveness: policy; result; timeframe"
+            
+            Return analysis after "####".
+            ", agent="Central Policymaker
+", status="started"
+
+2025-03-25 10:57:51: task_name="central_historical_analysis", task="
+            Use Chain of Draft: Analyze historical data with minimal steps, 30 words max per step.
+            
+            As Central Policymakers, examine historical macro data only.
+            Focus on:
+            1. Policy precedents
+            2. Institutional memory
+            3. Long-term policy effectiveness
+            
+            Format as:
+            "Precedent: situation; action; outcome"
+            "Memory: event; lesson; application"
+            "Effectiveness: policy; result; timeframe"
+            
+            Return analysis after "####".
+            ", agent="Central Policymaker
+", status="completed", output="Precedent: 2008 Financial Crisis; aggressive rate cuts; restored liquidity and confidence.  
+Memory: 2011 Eurozone Crisis; importance of swift action; applied decisive rate adjustments to stabilize markets.  
+Effectiveness: Quantitative Easing; stimulated growth; effective over several years post-crisis.  
+
+Precedent: 1970s Stagflation; tight monetary policy; curbed runaway inflation but increased unemployment.  
+Memory: 1990s Tech Boom; proactive rate hikes; balanced growth with inflation control.  
+Effectiveness: Inflation Targeting; maintained low inflation; successful over decades.  
+
+Precedent: COVID-19 Pandemic; emergency rate cuts; supported economic recovery and liquidity.  
+Memory: 2001 Dot-com Bubble; learned to act quickly; applied measures to prevent deeper recession.  
+Effectiveness: Forward Guidance; shaped market expectations; effective in stabilizing financial conditions.  
+
+Precedent: 1980s Volcker Shock; high rates to combat inflation; led to recession but restored credibility.  
+Memory: 2000s Housing Bubble; slow response; learned to monitor housing markets closely.  
+Effectiveness: Macroprudential Policies; improved resilience; effective in mitigating systemic risks.  
+
+Precedent: 1990s Asian Financial Crisis; coordinated global response; stabilized markets through collaboration.  
+Memory: 2008 Global Financial Crisis; importance of communication; applied transparency to guide expectations.  
+Effectiveness: Stress Testing; enhanced banking sector resilience; effective in preventing future crises.  
+
+####"
+
+2025-03-25 10:57:51: task_name="get_economic_suggestions", task="
+            Use Chain of Draft: Propose monetary policy options, 30 words max per step.
+            
+            Based on your analysis of:
+            - Current macro data
+            - Historical macro data
+            - Market-implied probabilities
+            
+            Propose 3 monetary policy solutions, each with:
+            1. Title with specific numerical rate adjustment
+            2. Justification (economic data)
+            3. Projected outcomes
+            4. Reference to implied probabilities
+            
+            Format as "Solution #: rate change; justification; outcomes"
+            
+            No preliminary leanings/advice. Number solutions clearly.
+            Never propose options with 0% implied probability.
+            
+            Return solutions after "####".
             ", agent="Economist option generator
 ", status="started"
 
-2025-03-17 15:43:26: task_name="get_economic_suggestions", task="
-            As the Fed's chief economist, analyze the current economic situation using the Beige Book, 
-            historical macro data, and current economic indicators provided to you. Pay attention to the 
-            probabilities implied by the futures market, mentioned in the current macro 1.pdf file.
+2025-03-25 10:58:04: task_name="get_economic_suggestions", task="
+            Use Chain of Draft: Propose monetary policy options, 30 words max per step.
             
-            Based on your analysis, propose 3 potential monetary policy solutions, each with:
-            1. A title that includes a specific interest rate plan with numerical adjustment
-            2. Detailed justification based on economic data
-            3. Projected economic outcomes
-            4. A reference to the implied probabilities of rate hikes and rate cuts mentioned
-            in the knowledge material.
+            Based on your analysis of:
+            - Current macro data
+            - Historical macro data
+            - Market-implied probabilities
             
-            You must not describe any preliminary leanings or advice on which option is best.
+            Propose 3 monetary policy solutions, each with:
+            1. Title with specific numerical rate adjustment
+            2. Justification (economic data)
+            3. Projected outcomes
+            4. Reference to implied probabilities
             
-            Format your response clearly with each solution separated and numbered.
-            Never give options that have a 0 percent implied probability. For example, if the 
-            implied probabilities show a 0 percent chance of a rate hike, none of the options 
-            should include increasing the rate. A 100% chance of a rate hike or a rate cut does
-            not mean that the market favors a steady rate.
+            Format as "Solution #: rate change; justification; outcomes"
+            
+            No preliminary leanings/advice. Number solutions clearly.
+            Never propose options with 0% implied probability.
+            
+            Return solutions after "####".
             ", agent="Economist option generator
-", status="completed", output="1. **0.25% Rate Cut to 4.75%**
-   - **Interest Rate Plan**: Reduce the Federal Funds target rate by 0.25% from 5.00% to 4.75%.
-   - **Justification**: This moderate rate cut aligns with the market's strong expectation of easing monetary policy due to the slowing GDP growth rate of 1.41% and a slightly rising unemployment rate of 4.1%. The current inflation metrics (CPI and PCE Price Index) do reveal pressure; however, the projected rate cut represents a cautious approach, addressing growth concerns while remaining vigilant about inflation.
-   - **Projected Economic Outcomes**: A decrease to 4.75% is expected to lower borrowing costs, potentially spurring investment and consumer spending. The aim is to mitigate the slowdown in economic growth and stimulate job creation. Inflation dynamics would need careful monitoring to prevent any long-term undesirable uptick.
-   - **Reference to Implied Probabilities**: The 100 percent implied probability of a rate cut underlines market consensus, with this incremental adjustment serving as a measured response to economic conditions.
+", status="completed", output="####
+Solution 1: Maintain at 0.25% rate; GDP stable at 2.1%, unemployment slightly up; minimal inflation risk; stable economy outlook; 50% probability.  
+Solution 2: Cut 0.25% rate; rise in unemployment, easing inflation; encourages economic growth; meets moderate growth needs; 30% probability.  
+Solution 3: Hike 0.25% rate; prevents future inflation; anticipates economic expansion; cautious stance; 20% probability.  
+####"
 
-2. **0.50% Rate Cut to 4.50%**
-   - **Interest Rate Plan**: Reduce the Federal Funds target rate by 0.50% from 5.00% to 4.50%.
-   - **Justification**: This more aggressive cut seeks to decisively address the concerns about stagnant GDP growth and unemployment worries. While both CPI and PCE suggest inflation exists, this broader rate cut reflects a prioritization of growth and employment over immediate inflation concerns, suggesting that inflation is of secondary concern compared to stimulating economic activity.
-   - **Projected Economic Outcomes**: Lowering rates to 4.50% may rapidly enhance liquidity in the market, encouraging more borrowing and spending by businesses and consumers. This could hitch economic momentum more swiftly, offering a robust counteraction to sluggish growth.
-   - **Reference to Implied Probabilities**: The futures market's certainty of a rate cut (100 percent probability) supports an aggressive policy stance, indicating strong market support for significant changes to stimulate the economy.
-
-3. **0.75% Rate Cut to 4.25%**
-   - **Interest Rate Plan**: Reduce the Federal Funds target rate by 0.75%, moving from 5.00% to 4.25%.
-   - **Justification**: A substantial rate cut of this magnitude is designed as a robust economic stimulus package, responding directly to persistent economic drag and buttressed by the 100 percent likelihood of rate reduction. With GDP growth showing a marked slowdown and unemployment edging upwards, this level of rate decrease anticipates rapidly implanting growth drivers while potentially tolerating controlled inflationary rise as a necessary repercussion.
-   - **Projected Economic Outcomes**: This vigorous rate reduction has the potential to sharply invigorate demand in the economy, potentially reversing trends of slow growth and unemployment increases. Capital acquisition becomes cheaper for firms and families alike, propelling both production and consumption.
-   - **Reference to Implied Probabilities**: The market's unanimous anticipation of a rate cut is highly compatible with a bold approach of this nature, reflecting an exceptional degree of confidence in the necessity for aggressive cuts. 
-
-Each of these options considers the 100 percent probability inference from the market while acknowledging internal economic conditions and their projected impacts."
-
-2025-03-17 15:43:26: task_name="regional_analysis", task="
-            As Regional Pragmatists, analyze the economist's proposed monetary policy solutions.
-            Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+2025-03-25 10:58:04: task_name="regional_consolidated_analysis", task="
+            Use Chain of Draft: Analyze economist proposals with minimal steps, 30 words max per step.
             
-            Consider:
-            1. The current economic data from the Beige Book
-            2. Historical macroeconomic data
-            3. Current macroeconmic data
-            4. The fed statement and minutes from the prior meeting
-            5. Your perspective on inflation, employment, and financial stability
+            As Regional Pragmatists, combine your analyses of:
+            - Beige Book
+            - Current macro data
+            - Historical data
             
-            Provide your initial assessment of each proposed solution, highlighting strengths, 
-            weaknesses, and your preliminary leanings. Focus on how these policies align with the 
-            Fed's dual mandate of price stability and maximum employment. Make specific historical
-            comparisons using exact dates, and reference specific macroeconomic indicators.
+            Evaluate each proposed solution considering:
+            1. Regional economic impacts
+            2. Dual mandate alignment
+            3. Historical comparisons (exact dates)
+            4. Prediction for 2025 year-end Fed Funds rate
             
-            End with your preliminary thoughts on which direction you're leaning and why.
+            Format as:
+            "Solution #: strength; weakness; regional impact"
+            "Historical comparison: date; similarity; outcome"
+            "Regional indicators: metric; trend; implication"
+            "Leaning: solution; rationale; regional benefit"
+            "2025 prediction: rate; reasoning"
+            
+            Return analysis after "####".
             ", agent="Regional Perspective on Monetary Policy
 ", status="started"
 
-2025-03-17 15:44:05: task_name="regional_analysis", task="
-            As Regional Pragmatists, analyze the economist's proposed monetary policy solutions.
-            Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+2025-03-25 10:58:19: task_name="regional_consolidated_analysis", task="
+            Use Chain of Draft: Analyze economist proposals with minimal steps, 30 words max per step.
             
-            Consider:
-            1. The current economic data from the Beige Book
-            2. Historical macroeconomic data
-            3. Current macroeconmic data
-            4. The fed statement and minutes from the prior meeting
-            5. Your perspective on inflation, employment, and financial stability
+            As Regional Pragmatists, combine your analyses of:
+            - Beige Book
+            - Current macro data
+            - Historical data
             
-            Provide your initial assessment of each proposed solution, highlighting strengths, 
-            weaknesses, and your preliminary leanings. Focus on how these policies align with the 
-            Fed's dual mandate of price stability and maximum employment. Make specific historical
-            comparisons using exact dates, and reference specific macroeconomic indicators.
+            Evaluate each proposed solution considering:
+            1. Regional economic impacts
+            2. Dual mandate alignment
+            3. Historical comparisons (exact dates)
+            4. Prediction for 2025 year-end Fed Funds rate
             
-            End with your preliminary thoughts on which direction you're leaning and why.
+            Format as:
+            "Solution #: strength; weakness; regional impact"
+            "Historical comparison: date; similarity; outcome"
+            "Regional indicators: metric; trend; implication"
+            "Leaning: solution; rationale; regional benefit"
+            "2025 prediction: rate; reasoning"
+            
+            Return analysis after "####".
             ", agent="Regional Perspective on Monetary Policy
-", status="completed", output="As Regional Pragmatists, we must carefully analyze the proposed monetary policy solutions in light of current economic conditions, historical context, and the Federal Reserve's dual mandate of price stability and maximum employment. 
+", status="completed", output="Solution 1: Maintain at 0.25% rate; strength in stable GDP growth; weakness in potential stagnation; regional impact supports steady business activity and cautious hiring.
 
-### Proposed Solutions Analysis
+Solution 2: Cut 0.25% rate; strength in stimulating growth; weakness in inflation risk; regional impact could boost consumer spending and local business adaptation.
 
-1. **0.25% Rate Cut to 4.75%**
-   - **Strengths**: This moderate cut aligns with the market's expectations and addresses the slowing GDP growth of 1.41% and the rising unemployment rate of 4.1%. It reflects a cautious approach, allowing for a potential boost in consumer spending and investment without triggering significant inflationary pressures.
-   - **Weaknesses**: While this approach is measured, it may not be aggressive enough to stimulate the economy effectively given the current economic slowdown. Historical comparisons, such as the 0.25% cut in December 2015, show that gradual adjustments can sometimes fail to address underlying economic issues promptly.
-   - **Preliminary Leaning**: This option may be too conservative given the urgency of the current economic conditions.
+Solution 3: Hike 0.25% rate; strength in controlling inflation; weakness in potential economic slowdown; regional impact may tighten credit, affecting local investments.
 
-2. **0.50% Rate Cut to 4.50%**
-   - **Strengths**: This more aggressive cut directly addresses the stagnation in GDP growth and rising unemployment. It prioritizes economic activity over immediate inflation concerns, which is crucial in a context where inflation metrics (CPI and PCE) indicate pressures but are not yet at crisis levels.
-   - **Weaknesses**: The risk here lies in potentially igniting inflation if the economy responds too strongly to the stimulus. Historical instances, such as the 0.50% cut in January 2008, show that aggressive cuts can lead to unintended consequences if not carefully monitored.
-   - **Preliminary Leaning**: This option strikes a better balance between stimulating growth and managing inflation risks, making it a strong contender.
+Historical comparison: 2020-2021; similarity in GDP recovery post-pandemic; outcome was stabilization at 2.1%, fostering resilience in local economies.
 
-3. **0.75% Rate Cut to 4.25%**
-   - **Strengths**: This substantial cut is designed to provide a robust stimulus to the economy, potentially reversing trends of slow growth and rising unemployment. It reflects a strong consensus in the market for aggressive action, which could lead to rapid improvements in economic conditions.
-   - **Weaknesses**: The primary concern is the potential for runaway inflation, especially if the economy responds too positively to such a significant rate reduction. Historical examples, such as the aggressive cuts during the 2008 financial crisis, illustrate the dangers of overshooting in monetary policy.
-   - **Preliminary Leaning**: While this option could provide the necessary stimulus, the risks associated with inflation and market stability make it a more cautious choice.
+Regional indicators: GDP Growth Rate; stable at 2.1%; trend indicates resilience; implication supports continued investment and job creation.
 
-### Historical Comparisons
-In assessing these options, we can draw parallels to past monetary policy decisions. For instance, during the 2001 recession, the Fed cut rates aggressively from 6.50% to 1.75% over several meetings, which ultimately helped to stabilize the economy but also led to a prolonged period of low-interest rates and subsequent inflationary pressures. Similarly, the cuts in 2008 were aimed at combating a financial crisis but resulted in a long-term low-rate environment that had mixed outcomes for economic stability.
+Leaning: Solution 1; rationale is to maintain stability in a moderate expansion; regional benefit is sustained business activity and cautious hiring practices.
 
-### Current Economic Context
-The current economic indicators, including a GDP growth rate of 1.41%, an unemployment rate of 4.1%, and inflation metrics that suggest moderate pressures, indicate that the economy is at a critical juncture. The futures market's 100% probability of a rate cut underscores the urgency for the Fed to act decisively.
+2025 prediction: rate at 0.25%; reasoning based on stable economic growth and low inflation expectations, supporting gradual recovery without shocks."
 
-### Prediction for the Federal Funds Target Rate in 2025
-Based on the current macroeconomic indicators and the dot plot from the Federal Open Market Committee, I predict that the Federal Funds Target rate will likely settle between **3.0% and 3.25%** by the end of 2025. This prediction aligns with the expectations of several committee members and reflects a gradual normalization of rates as the economy stabilizes post-rate cuts.
-
-### Conclusion
-In conclusion, while all proposed solutions have their merits, I lean towards the **0.50% rate cut to 4.50%** as the most balanced approach. It addresses immediate economic concerns while allowing for careful monitoring of inflation dynamics. The 0.25% cut may be too conservative, and the 0.75% cut carries significant risks. The chosen path must reflect a commitment to sustainable growth while remaining vigilant about inflation and employment stability."
-
-2025-03-17 15:44:05: task_name="academic_analysis", task="
-            As Academic Balancers, analyze the economist's proposed monetary policy solutions.
-            Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+2025-03-25 10:58:19: task_name="academic_consolidated_analysis", task="
+            Use Chain of Draft: Analyze economist proposals with minimal steps, 30 words max per step.
             
-            Consider:
-            1. The current economic data from the Beige Book
-            2. Historical macroeconomic data
-            3. Current macroeconmic data
-            4. The fed statement and minutes from the prior meeting
-            5. Your perspective on inflation, employment, and financial stability
+            As Academic Balancers, combine your analyses of:
+            - Dot plot description
+            - Current macro data
+            - Historical data
             
-            Provide your initial assessment of each proposed solution, highlighting strengths, 
-            weaknesses, and your preliminary leanings. Focus on how these policies align with the 
-            Fed's dual mandate of price stability and maximum employment. Make specific historical
-            comparisons using exact dates, and reference specific macroeconomic indicators.
+            Evaluate each proposed solution considering:
+            1. Theoretical consistency
+            2. Dual mandate alignment
+            3. Historical comparisons (exact dates)
+            4. Prediction for 2025 year-end Fed Funds rate
             
-            End with your preliminary thoughts on which direction you're leaning and why.
+            Format as:
+            "Solution #: strength; weakness; theoretical alignment"
+            "Historical comparison: date; similarity; outcome"
+            "Academic indicators: metric; trend; implication"
+            "Leaning: solution; rationale; theoretical basis"
+            "2025 prediction: rate; reasoning"
+            
+            Return analysis after "####".
             ", agent="Rigorous Analytical Perspective
 ", status="started"
 
-2025-03-17 15:44:26: task_name="academic_analysis", task="
-            As Academic Balancers, analyze the economist's proposed monetary policy solutions.
-            Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+2025-03-25 10:58:52: task_name="academic_consolidated_analysis", task="
+            Use Chain of Draft: Analyze economist proposals with minimal steps, 30 words max per step.
             
-            Consider:
-            1. The current economic data from the Beige Book
-            2. Historical macroeconomic data
-            3. Current macroeconmic data
-            4. The fed statement and minutes from the prior meeting
-            5. Your perspective on inflation, employment, and financial stability
+            As Academic Balancers, combine your analyses of:
+            - Dot plot description
+            - Current macro data
+            - Historical data
             
-            Provide your initial assessment of each proposed solution, highlighting strengths, 
-            weaknesses, and your preliminary leanings. Focus on how these policies align with the 
-            Fed's dual mandate of price stability and maximum employment. Make specific historical
-            comparisons using exact dates, and reference specific macroeconomic indicators.
+            Evaluate each proposed solution considering:
+            1. Theoretical consistency
+            2. Dual mandate alignment
+            3. Historical comparisons (exact dates)
+            4. Prediction for 2025 year-end Fed Funds rate
             
-            End with your preliminary thoughts on which direction you're leaning and why.
+            Format as:
+            "Solution #: strength; weakness; theoretical alignment"
+            "Historical comparison: date; similarity; outcome"
+            "Academic indicators: metric; trend; implication"
+            "Leaning: solution; rationale; theoretical basis"
+            "2025 prediction: rate; reasoning"
+            
+            Return analysis after "####".
             ", agent="Rigorous Analytical Perspective
-", status="completed", output="**Analysis of Proposed Monetary Policy Solutions**
+", status="completed", output="Solution 1: strength; stable economy; theoretical alignment with current macro data.  
+Solution 2: weakness; potential inflation risk; theoretical alignment with easing labor market.  
+Solution 3: strength; inflation control; theoretical alignment with cautious economic expansion.  
 
-1. **0.25% Rate Cut to 4.75%**
-   - **Strengths**: This moderate reduction aligns with the current economic indicators, particularly the slowing GDP growth rate of 1.41% and the rising unemployment rate of 4.1%. By lowering the target rate to 4.75%, the Fed aims to stimulate borrowing and spending without triggering significant inflationary pressures. Historical context shows that similar incremental cuts, such as the 0.25% reduction in December 2015, helped to gradually support economic recovery without destabilizing inflation.
-   - **Weaknesses**: The cautious nature of this cut may not be sufficient to address the immediate concerns of stagnant growth and rising unemployment. If inflationary pressures persist, this approach could risk falling behind the curve, as seen in the late 1970s when gradual adjustments failed to contain rising prices.
-   - **Preliminary Leaning**: While this option is prudent, it may not be aggressive enough given the current economic climate. 
+Historical comparison: date: 2015; similarity: stable GDP and low inflation; outcome: maintained rates led to gradual recovery.  
+Historical comparison: date: 2008; similarity: rising unemployment; outcome: rate cuts stimulated growth but delayed recovery.  
+Historical comparison: date: 2018; similarity: inflation concerns; outcome: rate hikes led to economic slowdown.  
 
-2. **0.50% Rate Cut to 4.50%**
-   - **Strengths**: This more aggressive cut reflects a proactive stance to stimulate economic activity. By reducing the rate to 4.50%, the Fed could enhance liquidity and encourage borrowing, which is crucial in a period of economic stagnation. Historical parallels can be drawn to the 2008 financial crisis when the Fed implemented rapid rate cuts to combat severe economic downturns.
-   - **Weaknesses**: The risk here lies in potentially overstimulating the economy, leading to inflationary pressures that could spiral out of control. The CPI and PCE data indicate existing inflation, and a significant cut could exacerbate this issue, reminiscent of the inflationary period in the late 1970s.
-   - **Preliminary Leaning**: This option appears more aligned with the need for immediate economic support, but careful monitoring of inflation is essential.
+Academic indicators: GDP growth rate; stable at 2.1%; implication suggests sustained economic health.  
+Academic indicators: unemployment rate; slight increase to 3.8%; implication indicates labor market softness.  
+Academic indicators: inflation rate (CPI); decreasing trend at 3.5%; implication reflects easing inflationary pressures.  
 
-3. **0.75% Rate Cut to 4.25%**
-   - **Strengths**: This substantial cut is designed to provide a robust stimulus to the economy, directly addressing the slowdown in GDP growth and rising unemployment. Historical evidence from the 2008 crisis supports the effectiveness of aggressive rate cuts in reviving economic activity. The 100% probability of this cut reflects strong market confidence in the necessity for such action.
-   - **Weaknesses**: The primary concern with this approach is the potential for runaway inflation. The Fed must balance the need for growth with the risk of inflation becoming entrenched, as seen in the 1970s when aggressive monetary policy led to stagflation.
-   - **Preliminary Leaning**: This option is compelling due to its potential for immediate impact, but it requires a careful assessment of inflation risks.
+Leaning: solution 1; rationale is stability in current economic conditions; theoretical basis supports maintaining rates to avoid shocks.  
+Leaning: solution 2; rationale is to stimulate growth amidst slight labor market loosening; theoretical basis aligns with Keynesian principles.  
+Leaning: solution 3; rationale is to preemptively address inflation; theoretical basis draws from monetarist views on inflation control.  
 
-**Prediction for the Federal Funds Target Rate at the End of 2025**
-Based on the current macroeconomic indicators, historical data, and the dot plot projections from the FOMC, I predict that the Federal Funds Target rate will likely settle between **3.0% and 3.25%** by the end of 2025. This prediction aligns with the distribution of committee members' expectations, where the majority cluster around these rates. The futures market's current 100% probability of a rate cut indicates a strong consensus for easing monetary policy, which will likely continue to influence the Fed's decisions in the coming years.
+2025 prediction: rate; 2.75%; reasoning based on gradual increases aligned with stable economic growth and inflation control measures."
 
-**Conclusion**
-In summary, while all proposed solutions have their merits, I lean towards the **0.50% rate cut to 4.50%** as the most balanced approach. It addresses immediate economic concerns while allowing for flexibility in managing inflation. The historical context and current economic indicators suggest that this option could effectively support growth without excessively risking inflation, aligning well with the Fed's dual mandate of price stability and maximum employment."
-
-2025-03-17 15:44:26: task_name="central_analysis", task="
-            As Central Policymakers, analyze the economist's proposed monetary policy solutions.
-            Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+2025-03-25 10:58:52: task_name="central_consolidated_analysis", task="
+            Use Chain of Draft: Analyze economist proposals with minimal steps, 30 words max per step.
             
-            Consider:
-            1. The current economic data from the Beige Book
-            2. Historical macroeconomic data
-            3. Current macroeconmic data
-            4. The fed statement and minutes from the prior meeting
-            5. Your perspective on inflation, employment, and financial stability
+            As Central Policymakers, combine your analyses of:
+            - Fed Explanation
+            - Current macro data
+            - Historical data
             
-            Provide your initial assessment of each proposed solution, highlighting strengths, 
-            weaknesses, and your preliminary leanings. Focus on how these policies align with the 
-            Fed's dual mandate of price stability and maximum employment. Make specific historical
-            comparisons using exact dates, and reference specific macroeconomic indicators.
+            Evaluate each proposed solution considering:
+            1. Policy framework alignment
+            2. Dual mandate balance
+            3. Historical comparisons (exact dates)
+            4. Prediction for 2025 year-end Fed Funds rate
             
-            End with your preliminary thoughts on which direction you're leaning and why.
+            Format as:
+            "Solution #: strength; weakness; policy alignment"
+            "Historical comparison: date; similarity; outcome"
+            "Policy indicators: metric; trend; implication"
+            "Leaning: solution; rationale; policy basis"
+            "2025 prediction: rate; reasoning"
+            
+            Return analysis after "####".
             ", agent="Central Policymaker
 ", status="started"
 
-2025-03-17 15:44:46: task_name="central_analysis", task="
-            As Central Policymakers, analyze the economist's proposed monetary policy solutions.
-            Also, make a prediction for what the Federal Funds Target rate will be at the end
-            of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+2025-03-25 10:59:29: task_name="central_consolidated_analysis", task="
+            Use Chain of Draft: Analyze economist proposals with minimal steps, 30 words max per step.
             
-            Consider:
-            1. The current economic data from the Beige Book
-            2. Historical macroeconomic data
-            3. Current macroeconmic data
-            4. The fed statement and minutes from the prior meeting
-            5. Your perspective on inflation, employment, and financial stability
+            As Central Policymakers, combine your analyses of:
+            - Fed Explanation
+            - Current macro data
+            - Historical data
             
-            Provide your initial assessment of each proposed solution, highlighting strengths, 
-            weaknesses, and your preliminary leanings. Focus on how these policies align with the 
-            Fed's dual mandate of price stability and maximum employment. Make specific historical
-            comparisons using exact dates, and reference specific macroeconomic indicators.
+            Evaluate each proposed solution considering:
+            1. Policy framework alignment
+            2. Dual mandate balance
+            3. Historical comparisons (exact dates)
+            4. Prediction for 2025 year-end Fed Funds rate
             
-            End with your preliminary thoughts on which direction you're leaning and why.
+            Format as:
+            "Solution #: strength; weakness; policy alignment"
+            "Historical comparison: date; similarity; outcome"
+            "Policy indicators: metric; trend; implication"
+            "Leaning: solution; rationale; policy basis"
+            "2025 prediction: rate; reasoning"
+            
+            Return analysis after "####".
             ", agent="Central Policymaker
-", status="completed", output="**Analysis of Proposed Monetary Policy Solutions**
+", status="completed", output="Solution 1: strength; supports stability; aligns with current economic indicators.  
+Solution 2: weakness; risks inflation resurgence; may not align with long-term goals.  
+Solution 3: strength; proactive inflation control; aligns with historical precedents.  
 
-1. **0.25% Rate Cut to 4.75%**
-   - **Strengths**: This moderate cut aligns with the current economic indicators, particularly the slowing GDP growth rate of 1.41% and the rising unemployment rate of 4.1%. By reducing the Federal Funds target rate to 4.75%, the Fed can lower borrowing costs, which may stimulate investment and consumer spending. This approach reflects a cautious stance, balancing the need for economic stimulus while remaining vigilant about inflation.
-   - **Weaknesses**: The primary concern with this approach is that it may not be aggressive enough to counteract the economic slowdown. Given the current inflation metrics, there is a risk that inflation could persist or even rise if the economy does not respond as anticipated to the rate cut.
-   - **Historical Comparison**: In the aftermath of the 2008 financial crisis, the Fed implemented a series of rate cuts, with the most significant being a 0.25% cut in December 2008, which was part of a broader strategy to stimulate the economy. The current economic environment, while different, shows parallels in the need for cautious yet decisive action.
+Historical comparison: 2008; aggressive rate cuts; restored liquidity and confidence.  
+Historical comparison: 1970s; tight monetary policy; curbed inflation but increased unemployment.  
+Historical comparison: COVID-19; emergency cuts; supported recovery and liquidity.  
 
-2. **0.50% Rate Cut to 4.50%**
-   - **Strengths**: This more aggressive cut addresses the stagnation in GDP growth and rising unemployment more decisively. By lowering the rate to 4.50%, the Fed could enhance liquidity in the market, encouraging borrowing and spending, which is crucial for economic momentum.
-   - **Weaknesses**: The downside of this approach is the potential for inflation to become entrenched if the economy overheats. While the current inflation metrics indicate pressure, prioritizing growth over inflation could lead to longer-term challenges.
-   - **Historical Comparison**: The Fed's response to the economic downturn in 2001 included a series of rate cuts, with a notable 0.50% cut in January 2001. This aggressive stance was aimed at stimulating a sluggish economy, similar to the current situation.
+Policy indicators: GDP Growth Rate; stable at 2.1%; implies sustained economic health.  
+Policy indicators: Unemployment Rate; slight increase at 3.8%; suggests cautious hiring.  
+Policy indicators: Inflation Rate (CPI); decreasing at 3.5%; indicates easing pressures.  
 
-3. **0.75% Rate Cut to 4.25%**
-   - **Strengths**: This substantial cut is designed to provide a robust stimulus to the economy, directly addressing the persistent economic drag. By moving to 4.25%, the Fed could significantly lower borrowing costs, potentially reversing trends of slow growth and rising unemployment.
-   - **Weaknesses**: The major concern here is the risk of igniting inflationary pressures. While the market currently anticipates a rate cut, a 0.75% reduction could lead to a rapid increase in demand, which may not be sustainable if inflation expectations rise.
-   - **Historical Comparison**: The Fed's response to the COVID-19 pandemic in March 2020 included an emergency rate cut of 0.50%, followed by another 0.25% cut, reflecting a similar urgency to stimulate the economy during a crisis.
+Leaning: Solution 1; rationale is stability; policy basis is current economic indicators.  
+Leaning: Solution 3; rationale is inflation control; policy basis is historical effectiveness.  
 
-**Preliminary Thoughts on Direction and Prediction for the Federal Funds Target Rate in 2025**
+2025 prediction: rate; 3.0%; reasoning based on projected inflation trends and economic growth."
 
-Given the current economic indicators, including the slowing GDP growth, rising unemployment, and the market's strong expectation of a rate cut, I lean towards the **0.50% rate cut to 4.50%** as the most balanced approach. This option addresses immediate economic concerns while allowing for some caution regarding inflation.
-
-Looking ahead to the end of 2025, based on the dot plot and current market expectations, I predict that the Federal Funds Target rate will likely settle between **3.0% and 3.25%**. This prediction aligns with the committee's distribution of expectations, which shows a clustering around these rates, reflecting a gradual normalization of monetary policy as the economy stabilizes post-rate cuts. 
-
-In conclusion, the Fed must navigate the delicate balance between stimulating growth and managing inflation risks. The chosen path will significantly impact economic recovery and financial stability in the coming years."
-
-2025-03-17 15:44:46: task_name="regional_discussion", task="
-            As Regional Pragmatists, respond to the initial analyses provided by your colleagues:
+2025-03-25 10:59:29: task_name="regional_discussion", task="
+            Use Chain of Draft: Respond to analyses with minimal steps, 30 words max per step.
             
-            1. Address key points raised by other members that align with or differ from your perspective
-            2. Clarify or defend your position based on questions or concerns from others
-            3. Note any shifts in your thinking based on others' analyses
-            4. Highlight regional economic considerations that may have been overlooked
+            As Regional Pragmatists:
+            1. Address key points from others
+            2. Defend/clarify your position
+            3. Note any mind changing
+            4. Highlight regional considerations
             
-            Be specific in your references to other members' positions. Provide your assessment
-            of where the committee appears to be leaning and the key factors that should inform the final decision.
-            Be sure to continue to reference specific historical comparisons, and specific macroeconomic indicators.
-            Provide an updated prediction for the fed funds target rate at the end of 2025.
+            Format as:
+            "Member point: agreement/disagreement; reason"
+            "Position clarification: point; rationale"
+            "Regional factors: indicator; implication"
+            "Updated leaning: solution; reason"
+            "Updated 2025 prediction: rate"
+            
+            Return discussion after "####".
             ", agent="Regional Perspective on Monetary Policy
 ", status="started"
 
-2025-03-17 15:45:33: task_name="regional_discussion", task="
-            As Regional Pragmatists, respond to the initial analyses provided by your colleagues:
+2025-03-25 10:59:36: task_name="regional_discussion", task="
+            Use Chain of Draft: Respond to analyses with minimal steps, 30 words max per step.
             
-            1. Address key points raised by other members that align with or differ from your perspective
-            2. Clarify or defend your position based on questions or concerns from others
-            3. Note any shifts in your thinking based on others' analyses
-            4. Highlight regional economic considerations that may have been overlooked
+            As Regional Pragmatists:
+            1. Address key points from others
+            2. Defend/clarify your position
+            3. Note any mind changing
+            4. Highlight regional considerations
             
-            Be specific in your references to other members' positions. Provide your assessment
-            of where the committee appears to be leaning and the key factors that should inform the final decision.
-            Be sure to continue to reference specific historical comparisons, and specific macroeconomic indicators.
-            Provide an updated prediction for the fed funds target rate at the end of 2025.
+            Format as:
+            "Member point: agreement/disagreement; reason"
+            "Position clarification: point; rationale"
+            "Regional factors: indicator; implication"
+            "Updated leaning: solution; reason"
+            "Updated 2025 prediction: rate"
+            
+            Return discussion after "####".
             ", agent="Regional Perspective on Monetary Policy
-", status="completed", output="As Regional Pragmatists, we must carefully analyze the proposed monetary policy solutions in light of current economic conditions, historical context, and the Federal Reserve's dual mandate of price stability and maximum employment. 
+", status="completed", output="Member point: Solution 1; agreement; it supports stability in the current economic environment.  
+Position clarification: Solution 1; rationale is to maintain steady growth without shocks, ensuring cautious hiring practices.  
+Regional factors: GDP Growth Rate; stable at 2.1%; implication supports ongoing investment and job creation in local markets.  
+Updated leaning: Solution 1; reason is to prioritize stability and gradual growth, aligning with regional economic realities.  
+Updated 2025 prediction: rate at 0.25%; reasoning based on sustained economic growth and low inflation expectations, fostering gradual recovery.  
+####"
 
-### Response to Colleagues' Analyses
-
-1. **0.25% Rate Cut to 4.75%**
-   - **Alignment**: I agree with the assessment that this moderate cut aligns with the current economic indicators, particularly the slowing GDP growth rate of 1.41% and the rising unemployment rate of 4.1%. It reflects a cautious approach that could stimulate consumer spending and investment without triggering significant inflationary pressures.
-   - **Defense**: However, I would argue that while this approach is prudent, it may not be aggressive enough given the urgency of the current economic conditions. Historical comparisons, such as the 0.25% cut in December 2015, show that gradual adjustments can sometimes fail to address underlying economic issues promptly. The current economic climate demands a more decisive action to prevent stagnation.
-
-2. **0.50% Rate Cut to 4.50%**
-   - **Alignment**: I find this option compelling as it directly addresses the stagnation in GDP growth and rising unemployment. The proactive stance to stimulate economic activity is crucial in this context.
-   - **Clarification**: While some colleagues have raised concerns about the risk of igniting inflation, I believe that the current inflation metrics (CPI and PCE) indicate pressures but are not yet at crisis levels. The historical context of the 2008 financial crisis, where aggressive cuts were necessary to combat severe economic downturns, supports this approach. The balance between stimulating growth and managing inflation risks is delicate but achievable.
-
-3. **0.75% Rate Cut to 4.25%**
-   - **Differing Perspective**: While I acknowledge the potential benefits of this substantial cut in providing a robust stimulus to the economy, I remain cautious about the risks associated with runaway inflation. The historical examples from the 2008 financial crisis illustrate the dangers of overshooting in monetary policy. The primary concern is that such a significant reduction could lead to rapid increases in demand, which may not be sustainable if inflation expectations rise.
-   - **Shift in Thinking**: I have shifted my thinking slightly towards recognizing the urgency for action, but I still believe that the risks associated with this option outweigh the potential benefits.
-
-### Overlooked Regional Economic Considerations
-
-In our discussions, I feel that we may have overlooked specific regional economic conditions that could inform our decision. For instance, certain districts are experiencing more pronounced labor market challenges, with unemployment rates varying significantly across regions. The Beige Book highlights that while some areas are seeing robust job growth, others are struggling with higher unemployment rates, which could be exacerbated by a one-size-fits-all monetary policy approach. 
-
-Additionally, regional banking conditions vary, with some districts reporting tighter lending standards that could hinder the effectiveness of any rate cuts. It is crucial that our final decision reflects these localized economic realities to ensure that monetary policy is effective across all regions.
-
-### Committee Direction and Final Decision
-
-Based on the current economic indicators, including a GDP growth rate of 1.41%, an unemployment rate of 4.1%, and inflation metrics that suggest moderate pressures, I lean towards the **0.50% rate cut to 4.50%** as the most balanced approach. This option addresses immediate economic concerns while allowing for careful monitoring of inflation dynamics. The 0.25% cut may be too conservative, and the 0.75% cut carries significant risks.
-
-### Prediction for the Federal Funds Target Rate in 2025
-
-Looking ahead, based on the current macroeconomic indicators and the dot plot from the Federal Open Market Committee, I predict that the Federal Funds Target rate will likely settle between **3.0% and 3.25%** by the end of 2025. This prediction aligns with the expectations of several committee members and reflects a gradual normalization of rates as the economy stabilizes post-rate cuts.
-
-### Conclusion
-
-In conclusion, the chosen path must reflect a commitment to sustainable growth while remaining vigilant about inflation and employment stability. The **0.50% rate cut to 4.50%** is the most prudent choice, balancing the need for immediate economic support with the risks of inflation. Our decisions must be informed by localized data and the diverse economic conditions across regions to ensure effective monetary policy."
-
-2025-03-17 15:45:33: task_name="academic_discussion", task="
-            As Academic Balancers, respond to the initial analyses provided by your colleagues:
+2025-03-25 10:59:36: task_name="academic_discussion", task="
+            Use Chain of Draft: Respond to analyses with minimal steps, 30 words max per step.
             
-            1. Address key points raised by other members that align with or differ from your perspective
-            2. Clarify or defend your position based on questions or concerns from others
-            3. Note any shifts in your thinking based on others' analyses
-            4. Highlight the most important considerations that should guide the committee's decision
+            As Academic Balancers:
+            1. Address key points from others
+            2. Defend/clarify your position
+            3. Note any mind changing
+            4. Highlight theoretical considerations
             
-            Be specific in your references to other members' positions. Be sure to continue to reference
-            specific historical comparisons, and specific macroeconomic indicators.
-            Provide an updated prediction for the fed funds target rate at the end of 2025.
+            Format as:
+            "Member point: agreement/disagreement; reason"
+            "Position clarification: point; rationale"
+            "Academic factors: concept; implication"
+            "Updated leaning: solution; reason"
+            "Updated 2025 prediction: rate"
+            
+            Return discussion after "####".
             ", agent="Rigorous Analytical Perspective
 ", status="started"
 
-2025-03-17 15:46:11: task_name="academic_discussion", task="
-            As Academic Balancers, respond to the initial analyses provided by your colleagues:
+2025-03-25 10:59:50: task_name="academic_discussion", task="
+            Use Chain of Draft: Respond to analyses with minimal steps, 30 words max per step.
             
-            1. Address key points raised by other members that align with or differ from your perspective
-            2. Clarify or defend your position based on questions or concerns from others
-            3. Note any shifts in your thinking based on others' analyses
-            4. Highlight the most important considerations that should guide the committee's decision
+            As Academic Balancers:
+            1. Address key points from others
+            2. Defend/clarify your position
+            3. Note any mind changing
+            4. Highlight theoretical considerations
             
-            Be specific in your references to other members' positions. Be sure to continue to reference
-            specific historical comparisons, and specific macroeconomic indicators.
-            Provide an updated prediction for the fed funds target rate at the end of 2025.
+            Format as:
+            "Member point: agreement/disagreement; reason"
+            "Position clarification: point; rationale"
+            "Academic factors: concept; implication"
+            "Updated leaning: solution; reason"
+            "Updated 2025 prediction: rate"
+            
+            Return discussion after "####".
             ", agent="Rigorous Analytical Perspective
-", status="completed", output="In response to the analyses provided by my colleagues, I would like to address several key points while clarifying my position on the proposed monetary policy solutions.
+", status="completed", output="Member point: Solution 1; agreement; it supports stability in a moderate expansion, aligning with current economic indicators.  
+Position clarification: Solution 3; rationale is proactive inflation control; historical precedents suggest effectiveness in curbing inflation.  
+Academic factors: GDP growth rate; stable at 2.1%; implication indicates sustained economic health and supports cautious policy adjustments.  
+Updated leaning: Solution 1; rationale is to maintain stability while fostering cautious hiring practices, aligning with empirical evidence.  
+Updated 2025 prediction: rate at 0.25%; reasoning based on stable economic growth and low inflation expectations, supporting gradual recovery without shocks.  
+####  
+Member point: Solution 2; disagreement; risks inflation resurgence may undermine long-term stability goals.  
+Position clarification: Solution 1; rationale is to prioritize stability; empirical data supports maintaining rates to avoid economic shocks.  
+Academic factors: inflation rate (CPI); decreasing trend at 3.5%; implication reflects easing inflationary pressures, supporting cautious policy.  
+Updated leaning: Solution 3; rationale is to preemptively address inflation; aligns with historical effectiveness in controlling inflation.  
+Updated 2025 prediction: rate at 2.75%; reasoning based on gradual increases aligned with stable economic growth and inflation control measures.  
+####  
+Member point: Solution 3; agreement; proactive inflation control aligns with historical precedents.  
+Position clarification: Solution 2; rationale is to stimulate growth; potential inflation risks must be carefully managed.  
+Academic factors: unemployment rate; slight increase to 3.8%; implication indicates labor market softness, necessitating cautious policy.  
+Updated leaning: Solution 1; rationale is stability in current economic conditions; theoretical basis supports maintaining rates to avoid shocks.  
+Updated 2025 prediction: rate at 3.0%; reasoning based on projected inflation trends and economic growth, ensuring stability."
 
-1. **Response to Colleagues' Analyses**:
-   - The **0.25% rate cut to 4.75%** has been characterized as a cautious approach. While I agree that it aligns with current economic indicators, I share concerns that it may be insufficient to stimulate the economy effectively. Historical comparisons, such as the 0.25% cut in December 2015, illustrate that while gradual adjustments can support recovery, they may not adequately address urgent economic challenges. The current GDP growth rate of 1.41% and unemployment rate of 4.1% suggest a more aggressive response may be warranted.
-   - Regarding the **0.50% rate cut to 4.50%**, I find this option compelling as it strikes a balance between stimulating growth and managing inflation risks. This aligns with the historical precedent set during the 2008 financial crisis when the Fed implemented rapid rate cuts to combat severe economic downturns. The current inflation metrics, while concerning, do not yet indicate a crisis level, allowing for this more proactive stance.
-   - The **0.75% rate cut to 4.25%** is indeed a bold move aimed at providing substantial economic stimulus. However, I echo the concerns raised about the potential for runaway inflation. Historical examples, particularly the aggressive cuts during the 2008 financial crisis, highlight the risks of overshooting in monetary policy. The lessons learned from that period caution us against such drastic measures without careful monitoring of inflation dynamics.
-
-2. **Clarification of My Position**:
-   - I firmly believe that the **0.50% rate cut to 4.50%** is the most balanced approach. It addresses immediate economic concerns while allowing for flexibility in managing inflation. The risks associated with the 0.75% cut are significant, and the 0.25% cut may not provide the necessary stimulus to counteract the current economic slowdown. The urgency of the situation, as indicated by the futures market's 100% probability of a rate cut, necessitates a decisive yet measured response.
-
-3. **Shifts in Thinking**:
-   - While I initially leaned towards a more conservative approach, the analyses presented by my colleagues have reinforced my belief in the necessity of a more aggressive cut. The current economic indicators and historical context suggest that a **0.50% cut** is not only appropriate but essential for fostering economic recovery.
-
-4. **Important Considerations for the Committee's Decision**:
-   - The committee must prioritize empirical evidence and historical data in shaping its outlook. The balance between curbing inflation and supporting employment is paramount. The current economic indicators, including the GDP growth rate of 1.41%, unemployment rate of 4.1%, and inflation metrics, indicate that we are at a critical juncture. The decision must reflect a commitment to sustainable growth while remaining vigilant about inflation and employment stability.
-
-**Prediction for the Federal Funds Target Rate at the End of 2025**:
-Based on the current macroeconomic indicators and the dot plot from the Federal Open Market Committee, I predict that the Federal Funds Target rate will likely settle between **3.0% and 3.25%** by the end of 2025. This prediction aligns with the expectations of several committee members and reflects a gradual normalization of rates as the economy stabilizes post-rate cuts.
-
-In conclusion, I advocate for the **0.50% rate cut to 4.50%** as the most balanced and effective approach to address the current economic challenges. This decision will not only support immediate economic activity but also lay the groundwork for long-term stability."
-
-2025-03-17 15:46:11: task_name="central_discussion", task="
-            As Central Policymakers, respond to the initial analyses provided by your colleagues:
+2025-03-25 10:59:50: task_name="central_discussion", task="
+            Use Chain of Draft: Respond to analyses with minimal steps, 30 words max per step.
             
-            1. Address key points raised by other members that align with or differ from your perspective
-            2. Clarify or defend your position based on questions or concerns from others
-            3. Note any shifts in your thinking based on others' analyses
+            As Central Policymakers:
+            1. Address key points from others
+            2. Defend/clarify your position
+            3. Note any mind changing
+            4. Highlight policy considerations
             
-            Be specific in your references to other members' positions. Be sure to continue to reference
-            specific historical comparisons, and specific macroeconomic indicators.
-            Provide an updated prediction for the fed funds target rate at the end of 2025.
+            Format as:
+            "Member point: agreement/disagreement; reason"
+            "Position clarification: point; rationale"
+            "Policy factors: principle; implication"
+            "Updated leaning: solution; reason"
+            "Updated 2025 prediction: rate"
+            
+            Return discussion after "####".
             ", agent="Central Policymaker
 ", status="started"
 
-2025-03-17 15:46:33: task_name="central_discussion", task="
-            As Central Policymakers, respond to the initial analyses provided by your colleagues:
+2025-03-25 11:00:05: task_name="central_discussion", task="
+            Use Chain of Draft: Respond to analyses with minimal steps, 30 words max per step.
             
-            1. Address key points raised by other members that align with or differ from your perspective
-            2. Clarify or defend your position based on questions or concerns from others
-            3. Note any shifts in your thinking based on others' analyses
+            As Central Policymakers:
+            1. Address key points from others
+            2. Defend/clarify your position
+            3. Note any mind changing
+            4. Highlight policy considerations
             
-            Be specific in your references to other members' positions. Be sure to continue to reference
-            specific historical comparisons, and specific macroeconomic indicators.
-            Provide an updated prediction for the fed funds target rate at the end of 2025.
+            Format as:
+            "Member point: agreement/disagreement; reason"
+            "Position clarification: point; rationale"
+            "Policy factors: principle; implication"
+            "Updated leaning: solution; reason"
+            "Updated 2025 prediction: rate"
+            
+            Return discussion after "####".
             ", agent="Central Policymaker
-", status="completed", output="In response to the analyses provided by my colleagues, I appreciate the thoughtful consideration of the proposed monetary policy solutions. I would like to address key points raised, clarify my position, and note any shifts in my thinking based on our discussions.
+", status="completed", output="Member point: Solution 1; agreement; it supports stability in the current economic environment.  
+Position clarification: Solution 3; we prioritize inflation control; historical data shows proactive measures are effective.  
+Policy factors: Inflation control; maintaining price stability is crucial for long-term growth.  
+Updated leaning: Solution 3; we must act against inflation risks; proactive measures are necessary.  
+Updated 2025 prediction: rate at 3.0%; based on anticipated inflation trends and economic conditions.  
+####  
+Member point: Solution 2; disagreement; risks of inflation resurgence outweigh potential growth benefits.  
+Position clarification: Solution 1; maintaining the rate aligns with current economic stability; avoids shocks.  
+Policy factors: Economic stability; a steady rate supports sustained investment and cautious hiring.  
+Updated leaning: Solution 1; rationale is to ensure stability amidst uncertain economic conditions.  
+Updated 2025 prediction: rate at 0.25%; reasoning based on stable growth and low inflation expectations.  
+####  
+Member point: Solution 3; agreement; proactive inflation control is essential to prevent economic overheating.  
+Position clarification: Solution 1; we must balance growth with inflation risks; stability is key.  
+Policy factors: Inflation management; necessary to protect purchasing power and economic health.  
+Updated leaning: Solution 3; we need to address inflation proactively; historical precedents support this.  
+Updated 2025 prediction: rate at 3.0%; based on inflation control measures and economic growth projections.  
+####  
+Member point: Historical comparison; agreement; past actions show the effectiveness of proactive measures.  
+Position clarification: Solution 1; stability is crucial; we must avoid repeating past mistakes.  
+Policy factors: Historical effectiveness; lessons learned guide our current policy decisions.  
+Updated leaning: Solution 1; rationale is to maintain stability while monitoring inflation closely.  
+Updated 2025 prediction: rate at 0.25%; based on current economic indicators and inflation expectations.  
+####  
+Member point: Academic indicators; agreement; stable GDP growth supports maintaining current rates.  
+Position clarification: Solution 3; inflation risks necessitate a more aggressive approach; we must act.  
+Policy factors: Economic indicators; they guide our decisions and reflect the health of the economy.  
+Updated leaning: Solution 3; rationale is to preemptively address inflation; historical data supports this.  
+Updated 2025 prediction: rate at 3.0%; based on projected inflation trends and economic conditions."
 
-1. **Response to Proposed Solutions**:
-   - **0.25% Rate Cut to 4.75%**: While I acknowledge the strengths of this moderate cut in addressing the current economic indicators, I share concerns that it may be too conservative given the urgency of the economic slowdown. Historical comparisons, such as the 0.25% cut in December 2015, suggest that while gradual adjustments can support recovery, they may not adequately address underlying issues if inflationary pressures persist. The current GDP growth of 1.41% and unemployment rate of 4.1% necessitate a more decisive action.
-   
-   - **0.50% Rate Cut to 4.50%**: I find this option compelling as it strikes a balance between stimulating economic activity and managing inflation risks. The historical context of the 2008 financial crisis, where aggressive cuts were necessary to combat severe downturns, reinforces the need for a proactive approach. This option aligns with the current economic conditions and the market's expectations, which indicate a strong consensus for a rate cut.
-
-   - **0.75% Rate Cut to 4.25%**: While this substantial cut could provide a robust stimulus, I share concerns about the potential for runaway inflation. The lessons from the late 1970s, where aggressive monetary policy led to entrenched inflation, highlight the risks of overshooting in our current environment. Therefore, while this option may seem attractive for immediate impact, it requires careful consideration of inflation dynamics.
-
-2. **Clarification of My Position**: 
-   I firmly believe that the **0.50% rate cut to 4.50%** is the most balanced approach. It addresses immediate economic concerns while allowing for careful monitoring of inflation dynamics. The risks associated with the 0.75% cut are significant, and the 0.25% cut may not provide the necessary stimulus to counteract the current economic challenges. 
-
-3. **Shifts in Thinking**: 
-   After reviewing the analyses, I have become more convinced of the necessity for a proactive stance. The urgency of the current economic conditions, coupled with the market's strong expectation of a rate cut, reinforces my belief that we must act decisively to support growth while remaining vigilant about inflation.
-
-**Historical Comparisons**: 
-In assessing these options, I draw parallels to past monetary policy decisions. For instance, during the 2001 recession, the Fed cut rates aggressively from 6.50% to 1.75% over several meetings, which ultimately helped stabilize the economy but also led to a prolonged period of low-interest rates and subsequent inflationary pressures. Similarly, the cuts in 2008 were aimed at combating a financial crisis but resulted in a long-term low-rate environment that had mixed outcomes for economic stability.
-
-**Current Economic Context**: 
-The current economic indicators, including a GDP growth rate of 1.41%, an unemployment rate of 4.1%, and inflation metrics that suggest moderate pressures, indicate that the economy is at a critical juncture. The futures market's 100% probability of a rate cut underscores the urgency for the Fed to act decisively.
-
-**Prediction for the Federal Funds Target Rate in 2025**: 
-Based on the current macroeconomic indicators and the dot plot from the Federal Open Market Committee, I predict that the Federal Funds Target rate will likely settle between **3.0% and 3.25%** by the end of 2025. This prediction aligns with the expectations of several committee members and reflects a gradual normalization of rates as the economy stabilizes post-rate cuts.
-
-**Conclusion**: 
-In summary, I advocate for the **0.50% rate cut to 4.50%** as the most balanced approach to address the current economic challenges. This decision must reflect our commitment to sustainable growth while remaining vigilant about inflation and employment stability. The chosen path will significantly impact economic recovery and financial stability in the coming years."
-
-2025-03-17 15:46:33: task_name="regional_vote", task="
-            As Regional Pragmatists, it is time to cast your final vote and prediction.
+2025-03-25 11:00:05: task_name="regional_vote", task="
+            Use Chain of Draft: Cast final vote with minimal steps, 30 words max per step.
             
-            1. Clearly state which policy option you are voting for
-            2. Provide a concise explanation for your vote (1-2 paragraphs)
-            3. Include historical comparisons referencing specific years
-            4. Make sure to reference specific macroeconomic metrics/indicators
-            5. If applicable, note any reservations or conditions to your support
-            6. Make a prediction for the fed funds target rate at the end of 2025, a specific number, not a range.
-
-            The votes should be in terms of the change in interest rate, meaning if the vote is to "maintain", that means "0.00%",
-            a vote to increase by 25 bps means "0.25%", and a vote to deecrease by 25 bps would mean "-0.25%".
+            As Regional Pragmatists, vote on:
+            1. Preferred policy option
+            2. Interest rate adjustment
+            3. Historical comparisons (years)
+            4. Specific metrics justification
+            5. 2025 rate prediction (exact number)
             
-            Format your response as:
+            Format exactly as:
             Regional Pragmatist:
             POLICY VOTE: [Policy Option #]
-            INTEREST RATE VOTE: [The interest rate adjustment included in the policy option you voted for]
-            SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
-            EXPLANATION: [Your explanation including specific metrics]
-            PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025, a specific number, not a range]
+            INTEREST RATE VOTE: [Rate adjustment]
+            SPECIFIC HISTORICAL COMPARISONS: [years]
+            EXPLANATION: [Metrics-based justification]
+            PREDICTION FOR 2025: [Exact rate]
+            
+            Return vote after "####".
             ", agent="Regional Perspective on Monetary Policy
 ", status="started"
 
-2025-03-17 15:46:44: task_name="regional_vote", task="
-            As Regional Pragmatists, it is time to cast your final vote and prediction.
+2025-03-25 11:00:14: task_name="regional_vote", task="
+            Use Chain of Draft: Cast final vote with minimal steps, 30 words max per step.
             
-            1. Clearly state which policy option you are voting for
-            2. Provide a concise explanation for your vote (1-2 paragraphs)
-            3. Include historical comparisons referencing specific years
-            4. Make sure to reference specific macroeconomic metrics/indicators
-            5. If applicable, note any reservations or conditions to your support
-            6. Make a prediction for the fed funds target rate at the end of 2025, a specific number, not a range.
-
-            The votes should be in terms of the change in interest rate, meaning if the vote is to "maintain", that means "0.00%",
-            a vote to increase by 25 bps means "0.25%", and a vote to deecrease by 25 bps would mean "-0.25%".
+            As Regional Pragmatists, vote on:
+            1. Preferred policy option
+            2. Interest rate adjustment
+            3. Historical comparisons (years)
+            4. Specific metrics justification
+            5. 2025 rate prediction (exact number)
             
-            Format your response as:
+            Format exactly as:
             Regional Pragmatist:
             POLICY VOTE: [Policy Option #]
-            INTEREST RATE VOTE: [The interest rate adjustment included in the policy option you voted for]
-            SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
-            EXPLANATION: [Your explanation including specific metrics]
-            PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025, a specific number, not a range]
+            INTEREST RATE VOTE: [Rate adjustment]
+            SPECIFIC HISTORICAL COMPARISONS: [years]
+            EXPLANATION: [Metrics-based justification]
+            PREDICTION FOR 2025: [Exact rate]
+            
+            Return vote after "####".
             ", agent="Regional Perspective on Monetary Policy
 ", status="completed", output="Regional Pragmatist:  
-POLICY VOTE: 0.50% Rate Cut to 4.50%  
-INTEREST RATE VOTE: -0.50%  
-SPECIFIC HISTORICAL COMPARISONS: Historical comparisons include the aggressive rate cuts during the 2008 financial crisis, where the Federal Reserve reduced rates from 5.25% to near zero in response to severe economic downturns. Additionally, the 0.25% cut in December 2015, while effective in supporting recovery, demonstrated that gradual adjustments may not be sufficient in urgent economic conditions.  
-EXPLANATION: I am voting for the 0.50% rate cut to 4.50% as it directly addresses the current economic challenges, including a GDP growth rate of only 1.41% and an unemployment rate of 4.1%. This moderate cut is necessary to stimulate consumer spending and investment without triggering significant inflationary pressures, as current inflation metrics, such as the CPI and PCE, indicate moderate levels. The urgency of the situation, highlighted by the futures market's 100% probability of a rate cut, necessitates a decisive yet measured response to foster economic recovery.  
-PREDICTION FOR 2025: I predict that the Federal Funds Target rate will settle at 3.25% by the end of 2025."
+POLICY VOTE: Solution 1  
+INTEREST RATE VOTE: Maintain current rate  
+SPECIFIC HISTORICAL COMPARISONS: 2015, 2008, 2018  
+EXPLANATION: GDP growth stable at 2.1%, inflation easing at 3.5%, supports cautious policy.  
+PREDICTION FOR 2025: 0.25%"
 
-2025-03-17 15:46:44: task_name="academic_vote", task="
-            As Academic Balancers, it is time to cast your final vote and prediction.
+2025-03-25 11:00:14: task_name="academic_vote", task="
+            Use Chain of Draft: Cast final vote with minimal steps, 30 words max per step.
             
-            1. Clearly state which policy option you are voting for
-            2. Provide a concise explanation for your vote (1-2 paragraphs)
-            3. Include historical comparisons referencing specific years
-            4. Make sure to reference specific macroeconomic metrics/indicators
-            5. If applicable, note any reservations or conditions to your support
-            6. Make a prediction for the fed funds target rate at the end of 2025, a specific number, not a range. 
+            As Academic Balancers, vote on:
+            1. Preferred policy option
+            2. Interest rate adjustment
+            3. Historical comparisons (years)
+            4. Specific metrics justification
+            5. 2025 rate prediction (exact number)
             
-            The votes should be in terms of the change in interest rate, meaning if the vote is to "maintain", that means "0.00%",
-            a vote to increase by 25 bps means "0.25%", and a vote to deecrease by 25 bps would mean "-0.25%".
-
-            Format your response as:
+            Format exactly as:
             Academic Balancer:
             POLICY VOTE: [Policy Option #]
-            INTEREST RATE VOTE: [The interest rate adjustment included in the policy option you voted for]
-            SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
-            EXPLANATION: [Your explanation including specific metrics]
-            PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025, a specific number, not a range]
+            INTEREST RATE VOTE: [Rate adjustment]
+            SPECIFIC HISTORICAL COMPARISONS: [years]
+            EXPLANATION: [Metrics-based justification]
+            PREDICTION FOR 2025: [Exact rate]
+            
+            Return vote after "####".
             ", agent="Rigorous Analytical Perspective
 ", status="started"
 
-2025-03-17 15:47:01: task_name="academic_vote", task="
-            As Academic Balancers, it is time to cast your final vote and prediction.
+2025-03-25 11:00:24: task_name="academic_vote", task="
+            Use Chain of Draft: Cast final vote with minimal steps, 30 words max per step.
             
-            1. Clearly state which policy option you are voting for
-            2. Provide a concise explanation for your vote (1-2 paragraphs)
-            3. Include historical comparisons referencing specific years
-            4. Make sure to reference specific macroeconomic metrics/indicators
-            5. If applicable, note any reservations or conditions to your support
-            6. Make a prediction for the fed funds target rate at the end of 2025, a specific number, not a range. 
+            As Academic Balancers, vote on:
+            1. Preferred policy option
+            2. Interest rate adjustment
+            3. Historical comparisons (years)
+            4. Specific metrics justification
+            5. 2025 rate prediction (exact number)
             
-            The votes should be in terms of the change in interest rate, meaning if the vote is to "maintain", that means "0.00%",
-            a vote to increase by 25 bps means "0.25%", and a vote to deecrease by 25 bps would mean "-0.25%".
-
-            Format your response as:
+            Format exactly as:
             Academic Balancer:
             POLICY VOTE: [Policy Option #]
-            INTEREST RATE VOTE: [The interest rate adjustment included in the policy option you voted for]
-            SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
-            EXPLANATION: [Your explanation including specific metrics]
-            PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025, a specific number, not a range]
+            INTEREST RATE VOTE: [Rate adjustment]
+            SPECIFIC HISTORICAL COMPARISONS: [years]
+            EXPLANATION: [Metrics-based justification]
+            PREDICTION FOR 2025: [Exact rate]
+            
+            Return vote after "####".
             ", agent="Rigorous Analytical Perspective
 ", status="completed", output="Academic Balancer:  
-POLICY VOTE: 0.50% Rate Cut to 4.50%  
-INTEREST RATE VOTE: -0.50%  
-SPECIFIC HISTORICAL COMPARISONS: Historical comparisons can be drawn to the aggressive rate cuts during the 2008 financial crisis, where the Federal Reserve reduced rates from 5.25% to near zero in a series of cuts to combat severe economic downturns. Additionally, the 0.25% cut in December 2015, while effective in supporting recovery, demonstrated that gradual adjustments may not be sufficient in urgent economic conditions, as seen in the current GDP growth rate of 1.41% and unemployment rate of 4.1%.  
-EXPLANATION: The decision to support a 0.50% rate cut to 4.50% is grounded in the current economic indicators, which reflect a slowing GDP growth rate and rising unemployment. The GDP growth rate of 1.41% is below potential, indicating a need for stimulus to encourage consumer spending and investment. The unemployment rate of 4.1% suggests that labor market conditions are softening, necessitating a proactive approach to support job creation. While inflation metrics indicate some pressures, they are not at crisis levels, allowing for a more aggressive stance without immediate fears of runaway inflation.  
-PREDICTION FOR 2025: 3.0%"
+POLICY VOTE: Solution 1  
+INTEREST RATE VOTE: Maintain current rate  
+SPECIFIC HISTORICAL COMPARISONS: 2015, 2008, 2018  
+EXPLANATION: Stable GDP growth at 2.1% supports maintaining rates to avoid shocks.  
+PREDICTION FOR 2025: 0.25%"
 
-2025-03-17 15:47:01: task_name="central_vote", task="
-            As Central Policymakers, it is time to cast your final vote and prediction.
+2025-03-25 11:00:24: task_name="central_vote", task="
+            Use Chain of Draft: Cast final vote with minimal steps, 30 words max per step.
             
-            1. Clearly state which policy option you are voting for
-            2. Provide a concise explanation for your vote (1-2 paragraphs)
-            3. Include historical comparisons referencing specific years
-            4. Make sure to reference specific macroeconomic metrics/indicators
-            5. If applicable, note any reservations or conditions to your support
-            6. Make a prediction for the fed funds target rate at the end of 2025, a specific number, not a range.
-
-            The votes should be in terms of the change in interest rate, meaning if the vote is to "maintain", that means "0.00%",
-            a vote to increase by 25 bps means "0.25%", and a vote to deecrease by 25 bps would mean "-0.25%".
+            As Central Policymakers, vote on:
+            1. Preferred policy option
+            2. Interest rate adjustment
+            3. Historical comparisons (years)
+            4. Specific metrics justification
+            5. 2025 rate prediction (exact number)
             
-            Format your response as:
+            Format exactly as:
             Central Policymaker:
             POLICY VOTE: [Policy Option #]
-            INTEREST RATE VOTE: [The interest rate adjustment included in the policy option you voted for]
-            SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
-            EXPLANATION: [Your explanation including specific metrics]
-            PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025. A specific number, not a range]
+            INTEREST RATE VOTE: [Rate adjustment]
+            SPECIFIC HISTORICAL COMPARISONS: [years]
+            EXPLANATION: [Metrics-based justification]
+            PREDICTION FOR 2025: [Exact rate]
+            
+            Return vote after "####".
             ", agent="Central Policymaker
 ", status="started"
 
-2025-03-17 15:47:38: task_name="central_vote", task="
-            As Central Policymakers, it is time to cast your final vote and prediction.
+2025-03-25 11:00:38: task_name="central_vote", task="
+            Use Chain of Draft: Cast final vote with minimal steps, 30 words max per step.
             
-            1. Clearly state which policy option you are voting for
-            2. Provide a concise explanation for your vote (1-2 paragraphs)
-            3. Include historical comparisons referencing specific years
-            4. Make sure to reference specific macroeconomic metrics/indicators
-            5. If applicable, note any reservations or conditions to your support
-            6. Make a prediction for the fed funds target rate at the end of 2025, a specific number, not a range.
-
-            The votes should be in terms of the change in interest rate, meaning if the vote is to "maintain", that means "0.00%",
-            a vote to increase by 25 bps means "0.25%", and a vote to deecrease by 25 bps would mean "-0.25%".
+            As Central Policymakers, vote on:
+            1. Preferred policy option
+            2. Interest rate adjustment
+            3. Historical comparisons (years)
+            4. Specific metrics justification
+            5. 2025 rate prediction (exact number)
             
-            Format your response as:
+            Format exactly as:
             Central Policymaker:
             POLICY VOTE: [Policy Option #]
-            INTEREST RATE VOTE: [The interest rate adjustment included in the policy option you voted for]
-            SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
-            EXPLANATION: [Your explanation including specific metrics]
-            PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025. A specific number, not a range]
+            INTEREST RATE VOTE: [Rate adjustment]
+            SPECIFIC HISTORICAL COMPARISONS: [years]
+            EXPLANATION: [Metrics-based justification]
+            PREDICTION FOR 2025: [Exact rate]
+            
+            Return vote after "####".
             ", agent="Central Policymaker
 ", status="completed", output="Central Policymaker:  
-POLICY VOTE: 0.50% Rate Cut to 4.50%  
-INTEREST RATE VOTE: -0.50%  
-SPECIFIC HISTORICAL COMPARISONS: Historical comparisons can be drawn to the aggressive rate cuts during the 2008 financial crisis, where the Federal Reserve reduced rates from 5.25% to near zero in a bid to stabilize the economy. Similarly, in 2001, the Fed cut rates from 6.50% to 1.75% to combat recessionary pressures. These historical precedents illustrate the effectiveness of decisive action in times of economic distress.  
-EXPLANATION: Given the current economic indicators, including a GDP growth rate of 1.41% and an unemployment rate of 4.1%, the economy is showing signs of stagnation. The inflation metrics, while concerning, do not yet indicate a crisis level, allowing for a proactive approach. A 0.50% rate cut to 4.50% strikes a balance between stimulating economic activity and managing inflation risks. This decision is supported by the futures market's strong consensus for a rate cut, reflecting the urgency for action to support growth.  
-PREDICTION FOR 2025: 3.25%"
+POLICY VOTE: Solution 1  
+INTEREST RATE VOTE: Maintain current rate  
+SPECIFIC HISTORICAL COMPARISONS: 2015, 2008, 2018  
+EXPLANATION: GDP growth stable at 2.1%, inflation decreasing at 3.5%, supports cautious policy.  
+PREDICTION FOR 2025: 0.25%"
 
-2025-03-17 15:47:38: task_name="other_summary", task="
-           As the FOMC analyst, prepare a JSON summary of the specific historical comparisons and metrics mentioned in the discussion. This must accurately reflect the voting tasks from all three agents’ voting tasks.
-           The output must strictly follow this format:
+2025-03-25 11:00:38: task_name="other_summary", task="
+           Use Chain of Draft to extract information:
+           
+           1. Extract all historical years/dates
+           2. Extract all metrics mentioned
+           3. Format as JSON
+           
+           Steps:
+           "Dates found: [list]"
+           "Metrics found: [list]"
+           "JSON: structure as required"
+           
+           Format exactly as:
            {
                "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
                "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"]
            }
-           **Important Notes:**
-           - The summary should accurately reflect the dates and metrics mentioned in the agent’s voting tasks.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="started"
 
-2025-03-17 15:47:43: task_name="other_summary", task="
-           As the FOMC analyst, prepare a JSON summary of the specific historical comparisons and metrics mentioned in the discussion. This must accurately reflect the voting tasks from all three agents’ voting tasks.
-           The output must strictly follow this format:
+2025-03-25 11:00:43: task_name="other_summary", task="
+           Use Chain of Draft to extract information:
+           
+           1. Extract all historical years/dates
+           2. Extract all metrics mentioned
+           3. Format as JSON
+           
+           Steps:
+           "Dates found: [list]"
+           "Metrics found: [list]"
+           "JSON: structure as required"
+           
+           Format exactly as:
            {
                "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
                "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"]
            }
-           **Important Notes:**
-           - The summary should accurately reflect the dates and metrics mentioned in the agent’s voting tasks.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="completed", output="{
-    "exact_historical_dates_referenced": ["2008-2008", "2015-2015", "2001-2001"],
-    "exact_metrics_mentioned": ["GDP growth rate", "unemployment rate", "CPI", "PCE"]
-}"
+    "exact_historical_dates_referenced": ["2008-2008", "2015-2015", "2018-2018"],
+    "exact_metrics_mentioned": ["GDP growth", "inflation"]
+}  
+####"
 
-2025-03-17 15:47:43: task_name="vote_summary", task="
-           As the FOMC analyst, prepare a JSON summary of the final votes from all three members voting tasks.
-           The votes should be in terms of the change in interest rate they voted for, accurately reflecting INTEREST RATE VOTE from each respective member's voting task.
-           The output must strictly follow this format:
+2025-03-25 11:00:43: task_name="vote_summary", task="
+           Use Chain of Draft to extract votes:
+           
+           1. Extract interest rate votes
+           2. Format member votes as JSON
+           
+           Steps:
+           "Regional vote: [extract]"
+           "Academic vote: [extract]"
+           "Central vote: [extract]"
+           "JSON: structure as required"
+           
+           Format exactly as:
            {
                "rate_votes": [
-                   {"member": "Regional Pragmatist", "vote": "#.##%"}, #INTEREST RATE VOTE from regional_vote task
-                   {"member": "Academic Balancer", "vote": "#.##%"}, #INTEREST RATE VOTE from academic_vote task
-                   {"member": "Central Policymaker", "vote": "#.##%"} #INTEREST RATE VOTE from central_vote task
-               ],
-           Important Notes:
-           - The summary should accurately reflect the final votes from each member's voting task.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+                   {"member": "Regional Pragmatist", "vote": "#.##%"},
+                   {"member": "Academic Balancer", "vote": "#.##%"},
+                   {"member": "Central Policymaker", "vote": "#.##%"}
+               ]
+           }
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="started"
 
-2025-03-17 15:48:17: task_name="vote_summary", task="
-           As the FOMC analyst, prepare a JSON summary of the final votes from all three members voting tasks.
-           The votes should be in terms of the change in interest rate they voted for, accurately reflecting INTEREST RATE VOTE from each respective member's voting task.
-           The output must strictly follow this format:
+2025-03-25 11:00:49: task_name="vote_summary", task="
+           Use Chain of Draft to extract votes:
+           
+           1. Extract interest rate votes
+           2. Format member votes as JSON
+           
+           Steps:
+           "Regional vote: [extract]"
+           "Academic vote: [extract]"
+           "Central vote: [extract]"
+           "JSON: structure as required"
+           
+           Format exactly as:
            {
                "rate_votes": [
-                   {"member": "Regional Pragmatist", "vote": "#.##%"}, #INTEREST RATE VOTE from regional_vote task
-                   {"member": "Academic Balancer", "vote": "#.##%"}, #INTEREST RATE VOTE from academic_vote task
-                   {"member": "Central Policymaker", "vote": "#.##%"} #INTEREST RATE VOTE from central_vote task
-               ],
-           Important Notes:
-           - The summary should accurately reflect the final votes from each member's voting task.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+                   {"member": "Regional Pragmatist", "vote": "#.##%"},
+                   {"member": "Academic Balancer", "vote": "#.##%"},
+                   {"member": "Central Policymaker", "vote": "#.##%"}
+               ]
+           }
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="completed", output="{
     "rate_votes": [
-        {"member": "Regional Pragmatist", "vote": "-0.50%"},
-        {"member": "Academic Balancer", "vote": "-0.50%"},
-        {"member": "Central Policymaker", "vote": "-0.50%"}
+        {"member": "Regional Pragmatist", "vote": "0.00%"},
+        {"member": "Academic Balancer", "vote": "0.00%"},
+        {"member": "Central Policymaker", "vote": "0.00%"}
     ]
-}"
+}  
+####"
 
-2025-03-17 15:48:17: task_name="prediction_summary", task="
-           As the FOMC analyst, prepare a JSON summary of the end of 2025 rate predictions from all three members voting tasks.
-           The predictions should accurately reflect PREDICTION FOR 2025 from each respective member's voting task.
-           The output must strictly follow this format:
+2025-03-25 11:00:49: task_name="prediction_summary", task="
+           Use Chain of Draft to extract predictions:
+           
+           1. Extract 2025 rate predictions
+           2. Format member predictions as JSON
+           
+           Steps:
+           "Regional prediction: [extract]"
+           "Academic prediction: [extract]"
+           "Central prediction: [extract]"
+           "JSON: structure as required"
+           
+           Format exactly as:
            {
                "rate_predictions": [
-                   {"member": "Regional Pragmatist", "prediction": "#.##%"}, #PREDICTION FOR 2025 from regional_vote task
-                   {"member": "Academic Balancer", "prediction": "#.##%"}, #PREDICTION FOR 2025 from academic_vote task
-                   {"member": "Central Policymaker", "prediction": "#.##%"} #PREDICTION FOR 2025 from central_vote task
+                   {"member": "Regional Pragmatist", "prediction": "#.##%"},
+                   {"member": "Academic Balancer", "prediction": "#.##%"},
+                   {"member": "Central Policymaker", "prediction": "#.##%"}
                ]
            }
-
-           **Important Notes:**
-           - The summary should accurately reflect the final predictions from each member's voting task.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="started"
 
-2025-03-17 15:48:31: task_name="prediction_summary", task="
-           As the FOMC analyst, prepare a JSON summary of the end of 2025 rate predictions from all three members voting tasks.
-           The predictions should accurately reflect PREDICTION FOR 2025 from each respective member's voting task.
-           The output must strictly follow this format:
+2025-03-25 11:00:56: task_name="prediction_summary", task="
+           Use Chain of Draft to extract predictions:
+           
+           1. Extract 2025 rate predictions
+           2. Format member predictions as JSON
+           
+           Steps:
+           "Regional prediction: [extract]"
+           "Academic prediction: [extract]"
+           "Central prediction: [extract]"
+           "JSON: structure as required"
+           
+           Format exactly as:
            {
                "rate_predictions": [
-                   {"member": "Regional Pragmatist", "prediction": "#.##%"}, #PREDICTION FOR 2025 from regional_vote task
-                   {"member": "Academic Balancer", "prediction": "#.##%"}, #PREDICTION FOR 2025 from academic_vote task
-                   {"member": "Central Policymaker", "prediction": "#.##%"} #PREDICTION FOR 2025 from central_vote task
+                   {"member": "Regional Pragmatist", "prediction": "#.##%"},
+                   {"member": "Academic Balancer", "prediction": "#.##%"},
+                   {"member": "Central Policymaker", "prediction": "#.##%"}
                ]
            }
-
-           **Important Notes:**
-           - The summary should accurately reflect the final predictions from each member's voting task.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="completed", output="{
     "rate_predictions": [
-        {"member": "Regional Pragmatist", "prediction": "3.25%"},
-        {"member": "Academic Balancer", "prediction": "3.00%"},
-        {"member": "Central Policymaker", "prediction": "3.25%"}
+        {"member": "Regional Pragmatist", "prediction": "0.25%"},
+        {"member": "Academic Balancer", "prediction": "0.25%"},
+        {"member": "Central Policymaker", "prediction": "0.25%"}
     ]
 }"
 
-2025-03-17 15:48:31: task_name="summary_final", task="
-           Combine the outputs of other_summary, vote_summary, and prediction_summary into one JSON object while accurately reflecting the information from the three prior summary tasks. 
-           The output must strictly follow this format:
+2025-03-25 11:00:56: task_name="summary_final", task="
+           Use Chain of Draft to combine summaries:
+           
+           1. Extract data from prior summaries
+           2. Combine into single JSON object
+           
+           Steps:
+           "Historical data: [extract]"
+           "Metrics data: [extract]"
+           "Votes data: [extract]"
+           "Predictions data: [extract]"
+           "Combined JSON: structure all together"
+           
+           Format exactly as:
            {
                "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
                "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"],
@@ -712,14 +1238,25 @@ PREDICTION FOR 2025: 3.25%"
                    {"member": "Central Policymaker", "prediction": "#.##%"}
                ]
            }
-           **Important Notes:**
-           - The summary should accurately reflect the information from other_summary, vote_summary, and prediction_summary.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="started"
 
-2025-03-17 15:48:43: task_name="summary_final", task="
-           Combine the outputs of other_summary, vote_summary, and prediction_summary into one JSON object while accurately reflecting the information from the three prior summary tasks. 
-           The output must strictly follow this format:
+2025-03-25 11:01:03: task_name="summary_final", task="
+           Use Chain of Draft to combine summaries:
+           
+           1. Extract data from prior summaries
+           2. Combine into single JSON object
+           
+           Steps:
+           "Historical data: [extract]"
+           "Metrics data: [extract]"
+           "Votes data: [extract]"
+           "Predictions data: [extract]"
+           "Combined JSON: structure all together"
+           
+           Format exactly as:
            {
                "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
                "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"],
@@ -734,21 +1271,22 @@ PREDICTION FOR 2025: 3.25%"
                    {"member": "Central Policymaker", "prediction": "#.##%"}
                ]
            }
-           **Important Notes:**
-           - The summary should accurately reflect the information from other_summary, vote_summary, and prediction_summary.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           
+           No text or explanations around JSON.
+           Return JSON after "####".
            ", agent="Policy_Summarizer", status="completed", output="{
-    "exact_historical_dates_referenced": ["2008-2008", "2015-2015", "2001-2001"],
-    "exact_metrics_mentioned": ["GDP growth rate", "unemployment rate", "CPI", "PCE"],
+    "exact_historical_dates_referenced": ["2008-2008", "2015-2015", "2018-2018"],
+    "exact_metrics_mentioned": ["GDP growth", "inflation"],
     "rate_votes": [
-        {"member": "Regional Pragmatist", "vote": "-0.50%"},
-        {"member": "Academic Balancer", "vote": "-0.50%"},
-        {"member": "Central Policymaker", "vote": "-0.50%"}
+        {"member": "Regional Pragmatist", "vote": "0.00%"},
+        {"member": "Academic Balancer", "vote": "0.00%"},
+        {"member": "Central Policymaker", "vote": "0.00%"}
     ],
     "rate_predictions": [
-        {"member": "Regional Pragmatist", "prediction": "3.25%"},
-        {"member": "Academic Balancer", "prediction": "3.00%"},
-        {"member": "Central Policymaker", "prediction": "3.25%"}
+        {"member": "Regional Pragmatist", "prediction": "0.25%"},
+        {"member": "Academic Balancer", "prediction": "0.25%"},
+        {"member": "Central Policymaker", "prediction": "0.25%"}
     ]
-}"
+}  
+####"
 

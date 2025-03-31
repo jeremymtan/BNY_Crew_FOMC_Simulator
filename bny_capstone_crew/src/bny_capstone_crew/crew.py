@@ -7,12 +7,12 @@ import os
 import os
 
 ### Add knowledge source, must add pdfs and csv in knoweldege folder
-date = "25_3"
+date = "23_5"
 pdf_source = PDFKnowledgeSource(
     file_paths=[
         f"{date} beige book.pdf",
         f"{date} current macro 1.pdf",
-        f"{date} dot plot description.pdf",
+        # f"{date} dot plot description.pdf",
         "Fed Explanation.pdf",
     ]
 )

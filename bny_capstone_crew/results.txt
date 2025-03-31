@@ -587,3 +587,30 @@ All metrics mentioned:
 ['Federal Funds Rate', 'GDP Growth Rate', 'Unemployment Rate', 'Inflation Expectation']
 ['GDP growth rate', 'unemployment rate', 'CPI', 'PCE']
 
+finishing
+Meeting Date: March 2025
+average agreement rate for votes: 100.0%
+average agreement rate for predictions: 100.0%
+total agreement rate: 100.0%
+correct rate vote percentage = 100.0%
+
+All dates mentioned:
+['2015-2018', 'late 1990s', 'late 1970s']
+['2007-2008', '1970-1980']
+['2015-2018', '2008-2008']
+['2018-2018', '2019-2019']
+['2015-2018', 'late 1990s']
+
+All metrics mentioned:
+['Federal Funds Target Rate', 'Consumer Price Index (CPI)', 'Personal Consumption Expenditures (PCE) Price Index', 'unemployment rate']
+['Unemployment Rate', 'Inflation Expectations']
+['real GDP growth estimate of 3.19%', 'unemployment rate of 4.1%', 'stable CPI of 319.775']
+['GDP growth rate', 'unemployment rate', 'inflation expectations']
+['unemployment rate', 'inflation expectations', 'MICH inflation expectation', 'CME FedWatch tool']
+
+finishing
+
+
+finishing
+
+
