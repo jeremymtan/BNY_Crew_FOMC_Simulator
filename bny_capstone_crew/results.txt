@@ -614,3 +614,95 @@ finishing
 finishing
 
 
+finishing
+Meeting Date: Feb 2023
+average agreement rate for votes: 73.33333333333333%
+average agreement rate for predictions: 60.0%
+total agreement rate: 66.67%
+correct rate vote percentage = 26.666666666666668%
+correct rate prediction percentage = 53.333333333333336%
+total accuracy = 40.0%
+
+All dates mentioned:
+['2015-2018', '2000-2000', '1994-1994', '2006-2006']
+['2004-2006', '1990-1999']
+['2004-2006', '2018-2018', '1970-1980']
+['2015-2015', '1970-1980']
+['1980-1980', '2004-2006']
+
+All metrics mentioned:
+['Unemployment Rate', 'GDP Growth Rate', 'Consumer Price Index (CPI)', 'Personal Consumption Expenditures (PCE) Price Index', 'MICH Inflation Expectation']
+['Real GDP growth of 4.79%', 'unemployment rate of 3.4%', 'MICH inflation expectation at 3.9%']
+['Federal Funds Rate', 'GDP Growth Rate', 'Unemployment Rate', 'MICH Inflation Expectation']
+['Federal Funds Rate', 'MICH inflation expectation', 'GDP growth rate', 'unemployment rate']
+['CPI', 'PCE index', 'GDP growth rate', 'unemployment rate', 'MICH inflation expectation']
+
+finishing
+Meeting Date: May 2023
+average agreement rate for votes: 86.66666666666667%
+average agreement rate for predictions: 66.67%
+total agreement rate: 76.67%
+correct rate vote percentage = 86.66666666666667%
+correct rate prediction percentage = 100.0%
+total accuracy = 93.33333333333334%
+
+All dates mentioned:
+['2015-2015', '1970-1980']
+['2015-2018', '1970-1980']
+['1990-2000', '1970-1980', '2018-2018']
+['2015-2018', '1970-1980']
+['2015-2018', '1970-1980', '2004-2006']
+
+All metrics mentioned:
+['CPI', 'MICH inflation expectations', 'unemployment rate', 'GDP growth rate', 'federal funds rate']
+['CPI of 303.365', 'MICH inflation expectation of 4.2%', 'Brave-Butters-Kelley Real GDP estimate of 2.88451', 'unemployment rate of 3.7%']
+['GDP growth rate', 'unemployment rate', 'CPI', 'PCE Price Index', 'inflation expectations']
+['CPI', 'PCE inflation expectations', 'unemployment rate', 'probability of a rate hike']
+['Consumer Price Index (CPI)', 'inflation expectation', 'unemployment rate', 'Real GDP growth']
+
+finishing
+Meeting Date: July 2023
+average agreement rate for votes: 60.0%
+average agreement rate for predictions: 73.33%
+total agreement rate: 66.67%
+correct rate vote percentage = 40.0%
+correct rate prediction percentage = 0.0%
+total accuracy = 20.0%
+
+All dates mentioned:
+['2014-2018', '2004-2006', '1970-1980']
+['2006-2006', '2018-2018', '1970-1979']
+['2004-2006', '2015-2018']
+['1994-1994', '2018-2018']
+['2004-2004', '1970-1980']
+
+All metrics mentioned:
+['Real GDP growth', 'Unemployment rate', 'Consumer Price Index (CPI)', 'Personal Consumption Expenditures (PCE) Price Index', 'MICH inflation expectation']
+['CPI of 304.628', 'PCE Price Index of 124.382', 'GDP growth rate of 4.87%', 'unemployment rate of 3.5%', 'MICH inflation expectation of 3.4%']
+['CPI at 304.628', 'PCE Price Index at 124.382', 'GDP growth rate of approximately 4.87%', 'unemployment rate of 3.5%', 'MICH inflation expectation of 3.4%']
+['Federal Funds Rate', 'Unemployment Rate', 'GDP Growth Rate', 'Consumer Price Index']
+['CPI', 'GDP growth', 'unemployment rate', 'inflation expectations']
+
+finishing
+Meeting Date: March 2024
+average agreement rate for votes: 100.0%
+average agreement rate for predictions: 80.0%
+total agreement rate: 90.0%
+correct rate vote percentage = 100.0%
+correct rate prediction percentage = 20.0%
+total accuracy = 60.0%
+
+All dates mentioned:
+['2016-2016', '2018-2021', '1970-1979']
+['2018-2018', '2000-2009']
+['2017-2017', '2018-2018']
+['2015-2018', '2008-2015', '1970-1980']
+['1970-1980', '2000-2001', '1994-1994']
+
+All metrics mentioned:
+['Unemployment Rate', 'Consumer Price Index', 'MICH Inflation Expectation']
+['CPI', 'PCE Price Index', 'unemployment rate']
+['Unemployment Rate', 'Inflation', 'Consumer Price Index (CPI)', 'Personal Consumption Expenditures (PCE)', 'Brave-Butters-Kelley Real GDP growth rate', 'MICH inflation expectation']
+['Federal Funds Target Rate', 'Unemployment Rate', 'Inflation Expectations', 'PCE Price Index', 'CPI', 'Implied Probability of Rate Hikes']
+['Unemployment Rate', 'Inflation Expectations', 'GDP Growth Rate']
+
