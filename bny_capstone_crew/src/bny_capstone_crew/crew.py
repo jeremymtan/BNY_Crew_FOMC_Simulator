@@ -2,12 +2,14 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 from crewai.knowledge.source.csv_knowledge_source import CSVKnowledgeSource
+from crewai.memory import LongTermMemory, ShortTermMemory, EntityMemory
+from crewai.memory.storage.ltm_sqlite_storage import LTMSQLiteStorage
 from crewai import LLM
 import os
 import os
 
 ### Add knowledge source, must add pdfs and csv in knoweldege folder
-date = "23_5"
+date = "23_6"
 pdf_source = PDFKnowledgeSource(
     file_paths=[
         f"{date} beige book.pdf",
@@ -580,5 +582,9 @@ class BnyCapstoneCrew:
             process=Process.sequential,  # Use sequential process to ensure proper order
             verbose=True,
             memory=True,
+            # Uncomment to add simulation memory!
+            # long_term_memory=LongTermMemory(
+            #    storage=LTMSQLiteStorage(db_path="memory/fomc_longterm.db")
+            # ),
             output_log_file="fomc_simulation.md",
         )
