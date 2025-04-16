@@ -194,11 +194,11 @@ $$
 Evaluates the consistency of model predictions for individual agent votes across simulation runs for each meeting.
 
 $$
-\text{Average Voting Stability} = \frac{1}{NJK} \sum_{i=1}^{N} \sum_{j=1}^{J} \sum_{k=1}^{K} \mathbf{1} \left( \widehat{\text{Vote}}_{i,j,k} = \widehat{\text{Vote}}^{\text{mode}}_{i,k} \right)
+\text{Average Voting Stability} = \frac{1}{NJK} \sum_{i=1}^{N} \sum_{j=1}^{J} \sum_{k=1}^{K} \mathbf{1}( \text{Vote}_{i,j,k} = \text{Vote}_{i,k}^{\text{mode}} )
 $$
 
----
 
+---
 
 
 
