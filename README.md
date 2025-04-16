@@ -197,6 +197,7 @@ $$
 \text{Average Voting Stability} = \text{avg}_{i,j,k} \; \mathbf{1} \left( \hat{\text{Vote}}_{i,j,k} = \hat{\text{Vote}}^{\text{mode}}_{i,k} \right)
 $$
 
+---
 
 ![Results](https://github.com/user-attachments/assets/e2616f4f-b1d9-4fcd-aff1-bc6c9a668de9)
 
