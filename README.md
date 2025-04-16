@@ -184,9 +184,7 @@ $$
 #### 2. Average Individual Voting Accuracy  
 Whether each agent correctly predicts the true rate decision in each meeting.
 
-$$
-\text{Average Individual Voting Accuracy} = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{1}{K} \sum_{k=1}^{K} \mathbf{1}\left(\hat{\text{Vote}}_{i,k} = \text{Vote}^*_i\right) \right)
-$$
+\( \text{Average Voting Stability} = \frac{1}{NJK} \sum_{i=1}^{N} \sum_{j=1}^{J} \sum_{k=1}^{K} \mathbf{1} \left( \hat{V}_{i,j,k} = \text{mode}(\hat{V}_{i,\cdot,k}) \right) \)
 
 ---
 
