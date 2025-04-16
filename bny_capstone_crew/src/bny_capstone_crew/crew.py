@@ -14,7 +14,7 @@ pdf_source = PDFKnowledgeSource(
     file_paths=[
         f"{date} beige book.pdf",
         f"{date} current macro 1.pdf",
-        # f"{date} dot plot description.pdf",
+        f"{date} dot plot description.pdf",
         "Fed Explanation.pdf",
     ]
 )
@@ -55,6 +55,7 @@ class BnyCapstoneCrew:
             config=self.agents_config["economist"],
             verbose=True,
             llm="gpt-4o",
+            knowledge_sources=[pdf_source, csv_source],
             max_iter=50,
         )
 
