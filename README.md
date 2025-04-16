@@ -193,7 +193,10 @@ $$
 #### 3. Average Voting Stability  
 Evaluates the consistency of model predictions for individual agent votes across simulation runs for each meeting.
 
-![Average Voting Stability](https://latex.codecogs.com/svg.image?$$%5Ctext%7BAverage&space;Voting&space;Stability%7D=%5Cfrac%7B1%7D%7BNJK%7D%5Csum_%7Bi=1%7D%5E%7BN%7D%5Csum_%7Bj=1%7D%5E%7BJ%7D%5Csum_%7Bk=1%7D%5E%7BK%7D%5Cmathbf%7B1%7D%5Cleft(%5Cwidehat%7B%5Ctext%7BVote%7D%7D_%7Bi,j,k%7D=%5Cwidehat%7B%5Ctext%7BVote%7D%7D_%7Bi,k%7D%5E%7B%5Ctext%7Bmode%7D%7D%5Cright)$$)
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\bg_black\color{white}$$%5Ctext%7BAverage&space;Voting&space;Stability%7D=%5Cfrac%7B1%7D%7BNJK%7D%5Csum_%7Bi=1%7D%5E%7BN%7D%5Csum_%7Bj=1%7D%5E%7BJ%7D%5Csum_%7Bk=1%7D%5E%7BK%7D%5Cmathbf%7B1%7D%5Cleft(%5Cwidehat%7B%5Ctext%7BVote%7D%7D_%7Bi,j,k%7D=%5Cwidehat%7B%5Ctext%7BVote%7D%7D_%7Bi,k%7D%5E%7B%5Ctext%7Bmode%7D%7D%5Cright)$$" />
+</p>
+
 ---
 
 
