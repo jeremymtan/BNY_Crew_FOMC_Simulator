@@ -175,18 +175,18 @@ $ ./run_crew.sh
 #### 1. Average Rate Change Accuracy
 Whether the model correctly predicts the overall rate decision for each meeting.
 
-$$
-\text{Average Rate Change Accuracy} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}\left(\hat{\text{Vote}}_i = \text{Vote}^*_i\right)
-$$
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\bg_black\color{white}$$%5Ctext%7BAverage&space;Rate&space;Change&space;Accuracy%7D=%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi=1%7D%5E%7BN%7D%5Cmathbf%7B1%7D%5Cleft(%5Chat%7B%5Ctext%7BVote%7D%7D_i=%5Ctext%7BVote%7D%5E*_i%5Cright)$$" />
+</p>
 
 ---
 
 #### 2. Average Individual Voting Accuracy  
 Whether each agent correctly predicts the true rate decision in each meeting.
 
-$$
-\text{Average Individual Voting Accuracy} = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{1}{K} \sum_{k=1}^{K} \mathbf{1}\left(\hat{\text{Vote}}_{i,k} = \text{Vote}^*_i\right) \right)
-$$
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\bg_black\color{white}$$%5Ctext%7BAverage&space;Individual&space;Voting&space;Accuracy%7D=%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi=1%7D%5E%7BN%7D%5Cleft(%5Cfrac%7B1%7D%7BK%7D%5Csum_%7Bk=1%7D%5E%7BK%7D%5Cmathbf%7B1%7D%5Cleft(%5Chat%7B%5Ctext%7BVote%7D%7D_%7Bi,k%7D=%5Ctext%7BVote%7D%5E*_i%5Cright)%5Cright)$$" />
+</p>
 
 ---
 
