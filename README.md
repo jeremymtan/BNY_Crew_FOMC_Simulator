@@ -2,7 +2,7 @@
 
 Welcome to the BnyCapstoneCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
-##Summary
+## Summary
 
 This project aims to simulate the Federal Open Market Committee’s (FOMC) decision-making process using **large language models (LLMs)** embedded within a **multi-agent architecture**. We seek to improve **federal funds rate prediction accuracy** and interpretability—key for risk management at BNY. Traditional models fail to capture the deliberative and human-like reasoning embedded in FOMC decisions. Our framework leverages economic data, unstructured inputs (e.g., Beige Book, dot plots), and agent discussions to emulate realistic monetary policy decisions.
 
@@ -151,13 +151,16 @@ $ ./run_crew.sh
   - Voting stability across runs
 
 
+![Results](https://github.com/user-attachments/assets/e2616f4f-b1d9-4fcd-aff1-bc6c9a668de9)
+
 ###  Key Results + Interpretation 
 
 - Simulation improved accuracy by **56% over baseline**
 - All models showed **70–80% voting stability**
-- CoD architecture offered **greater interpretability and token efficiency**
+- CoD architecture offered **greater interpretability and token efficiency**, but lacked similar accuracy improvemnts like the simulation + base framework
 
 ### Connecting back to Goals
+
 
 
 
