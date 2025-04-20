@@ -11,3 +11,6 @@ langchain_core
 langchain_experimental
 streamlit
 pathlib
+fpdf
+bs4
+sentence_transformers

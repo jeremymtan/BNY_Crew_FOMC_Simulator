@@ -401,31 +401,47 @@ class BnyCapstoneCrew:
         )
 
     @task
+    ### change this one
     def other_summary(self) -> Task:
         return Task(
             description="""
-           As the FOMC analyst, prepare a JSON summary of the specific historical comparisons and metrics mentioned in the discussion. This must accurately reflect the voting tasks from all three agents’ voting tasks.
-           The output must strictly follow this format:
-           {{
-               "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
-               "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"]
-           }}
-           **Important Notes:**
-           - The summary should accurately reflect the dates and metrics mentioned in the agent’s voting tasks.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
-           """,
+            As the FOMC analyst, draft a **formal public statement** on behalf of the Federal Open Market Committee (FOMC), with a total length of approximately **2,000 words**.
+
+            This statement should:
+            - Clearly announce the interest rate decision made by the committee (based on the final votes).
+            - Summarize the full set of economic conditions informing the decision, including inflation trends, labor market developments, GDP growth, financial stability, and risks.
+            - Reference macroeconomic indicators and specific historical analogs (e.g., "similar to conditions in 1994-95") mentioned by members.
+            - Include regional variations or sectoral insights if discussed.
+            - Provide forward guidance on future rate policy and the outlook for inflation and employment.
+            - Be written in **the same tone, structure, and formality** as official FOMC post-meeting statements.
+
+            Formatting Instructions:
+            - Begin with a 1–2 paragraph overview of the decision.
+            - Follow with a deep dive into the economic data and risk assessments (~1,200–1,500 words).
+            - End with detailed forward guidance and policy direction (~300–400 words).
+            - Avoid headings or markdown.
+
+            Word Count Guidance:
+            - Aim for approximately 2,000 words (you may slightly exceed this if necessary).
+            - If needed, use sentence expansions or insert additional nuance consistent with Fed tone.
+            """,
             agent=self.analyst(),
             context=[
+                self.regional_analysis(),
+                self.academic_analysis(),
+                self.central_analysis(),
+                self.regional_discussion(),
+                self.academic_discussion(),
+                self.central_discussion(),
                 self.regional_vote(),
                 self.academic_vote(),
                 self.central_vote(),
             ],
             expected_output="""
-           {{
-               "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
-               "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"]
-           }}
-           """,
+            A fully formatted FOMC post-meeting statement, ~2,000 words long, suitable for public release. 
+            It includes: (1) the interest rate decision, (2) macroeconomic and financial assessment, 
+            (3) forward guidance. Written in professional FOMC style with no AI mention.
+            """,
         )
 
     @task
@@ -505,8 +521,7 @@ class BnyCapstoneCrew:
            Combine the outputs of other_summary, vote_summary, and prediction_summary into one JSON object while accurately reflecting the information from the three prior summary tasks. 
            The output must strictly follow this format:
            {{
-               "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
-               "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"],
+                "fomc_public_statement": "Full FOMC-style qualitative statement text goes here.",
                "rate_votes": [
                    {{"member": "Regional Pragmatist", "vote": "#.##%"}},
                    {{"member": "Academic Balancer", "vote": "#.##%"}}, 
@@ -529,21 +544,20 @@ class BnyCapstoneCrew:
                 self.prediction_summary(),
             ],
             expected_output="""
-           {{
-               "exact_historical_dates_referenced": ["year1-year2", "year3-year4", ..., "year-year"],
-               "exact_metrics_mentioned": ["Metric 1", "Metric 2", ..., "Metric n"],
-               "rate_votes": [
-                   {{"member": "Regional Pragmatist", "vote": "#.##%"}},
-                   {{"member": "Academic Balancer", "vote": "#.##%"}}, 
-                   {{"member": "Central Policymaker", "vote": "#.##%"}}
-               ],
-               "rate_predictions": [
-                   {{"member": "Regional Pragmatist", "prediction": "#.##%"}},
-                   {{"member": "Academic Balancer", "prediction": "#.##%"}},
-                   {{"member": "Central Policymaker", "prediction": "#.##%"}}
-               ]
-           }}
-           """,
+            {{
+                "fomc_public_statement": "Full FOMC-style qualitative statement text goes here.",
+                "rate_votes": [
+                    {{"member": "Regional Pragmatist", "vote": "#.##%"}},
+                    {{"member": "Academic Balancer", "vote": "#.##%"}}, 
+                    {{"member": "Central Policymaker", "vote": "#.##%"}} 
+                ],
+                "rate_predictions": [
+                    {{"member": "Regional Pragmatist", "prediction": "#.##%"}},
+                    {{"member": "Academic Balancer", "prediction": "#.##%"}},
+                    {{"member": "Central Policymaker", "prediction": "#.##%"}}
+                ]
+            }}
+            """,
             output_file="rate_summary.json",
         )
 

@@ -1120,3 +1120,19 @@ All metrics mentioned:
 ['Cut rate by 0.25%', 'Increase by 0.25%', 'Economic growth', 'Consumer confidence', 'Investment opportunities', 'Inflation pressures', 'GDP growth', 'Labor market stability']
 ['GDP growth', 'unemployment rate', 'inflation rate']
 
+finishing
+Imported fetch_fomc_statement: <function fetch_fomc_statement at 0x1205f6480>
+Meeting Date: December 2024
+average agreement rate for votes: 91.66666666666667%
+[75.0, 75.0, 50.0]
+average agreement rate for predictions: 66.67%
+total agreement rate: 79.17%
+correct rate vote percentage = 0.0%
+correct rate prediction percentage = 0.0%
+total accuracy = 0.0%
+
+Fetching FOMC statement from: https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm
+
+Average SentenceTransformer cosine similarity over 4 runs:
+Similarity: 0.7420
+
