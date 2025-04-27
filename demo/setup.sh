@@ -17,32 +17,26 @@ sudo npm install -g pm2
 # Install nginx
 sudo apt-get install -y nginx
 
-# Create app directory
-mkdir -p ~/app
-
-# Clone the repository (you'll need to replace with your actual repo URL)
-# git clone <your-repo-url> ~/app
-
 # Setup Backend
-cd ~/app
-pip3 install -r requirements.txt
+cd backend
+pip3 install -r ../requirements.txt
 
 # Create backend start script
 echo '#!/bin/bash
-cd ~/app/demo/backend
-python3 -m uvicorn bny_capstone_crew:app --host 0.0.0.0 --port 8000' > ~/app/start-backend.sh
-chmod +x ~/app/start-backend.sh
+cd backend
+python3 -m uvicorn bny_capstone_crew:app --host 0.0.0.0 --port 8000' > start-backend.sh
+chmod +x start-backend.sh
 
 # Setup Frontend
-cd ~/app/demo/frontend
+cd ../frontend
 npm install
 npm run build
 
 # Create frontend start script
 echo '#!/bin/bash
-cd ~/app/demo/frontend
-npx next start -p 3000' > ~/app/start-frontend.sh
-chmod +x ~/app/start-frontend.sh
+cd frontend
+npx next start -p 3000' > ../start-frontend.sh
+chmod +x ../start-frontend.sh
 
 # Setup nginx configuration
 sudo tee /etc/nginx/sites-available/fomc-simulator << EOF
@@ -77,7 +71,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 # Setup PM2 to run both services
-pm2 start ~/app/start-backend.sh --name fomc-backend
-pm2 start ~/app/start-frontend.sh --name fomc-frontend
+pm2 start start-backend.sh --name fomc-backend
+pm2 start start-frontend.sh --name fomc-frontend
 pm2 startup
 pm2 save 
