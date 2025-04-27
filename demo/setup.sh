@@ -18,18 +18,19 @@ sudo npm install -g pm2
 sudo apt-get install -y nginx
 
 # Setup Backend with virtual environment
-cd backend
+cd server
 python3 -m venv venv
 source venv/bin/activate
 pip install -r ../../requirements.txt
+pip install crewai fastapi uvicorn
 deactivate
 
 # Create backend start script (in demo directory)
 cd ..
 echo '#!/bin/bash
-cd "$(dirname "$0")/backend"
+cd "$(dirname "$0")/server"
 source venv/bin/activate
-python3 -m uvicorn bny_capstone_crew:app --host 0.0.0.0 --port 8000
+python3 -m uvicorn server:app --host 0.0.0.0 --port 8000
 deactivate' > start-backend.sh
 chmod +x start-backend.sh
 
