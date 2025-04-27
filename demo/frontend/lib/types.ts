@@ -3,8 +3,8 @@
 export interface VoteData {
     member: string;
     vote: string;
+    policy_vote?: string;
     prediction?: string;
-
 }
 
 export interface PredictionData {

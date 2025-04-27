@@ -211,13 +211,22 @@ class SimulationManager:
     def _process_vote(self, output_text, index, member_name):
         """Process vote output"""
         try:
+            # Extract the policy vote text
+            policy_vote_match = re.search(r"POLICY VOTE:\s*([^\n]+)", output_text)
+            if policy_vote_match:
+                self.votes_data[index]["policy_vote"] = policy_vote_match.group(
+                    1
+                ).strip()
 
-            vote_match = re.search(r"([-+]?\d+\.?\d*\s*%)", output_text)
+            # Extract the interest rate vote
+            vote_match = re.search(
+                r"INTEREST RATE VOTE:\s*([-+]?\d+\.?\d*\s*%)", output_text
+            )
             if vote_match:
                 self.votes_data[index]["vote"] = vote_match.group(1)
 
             prediction_match = re.search(
-                r"Prediction.*?([-+]?\d+\.?\d*\s*%)", output_text
+                r"PREDICTION FOR 2025:\s*([-+]?\d+\.?\d*\s*%)", output_text
             )
             if prediction_match:
                 self.predictions_data[index]["prediction"] = prediction_match.group(1)

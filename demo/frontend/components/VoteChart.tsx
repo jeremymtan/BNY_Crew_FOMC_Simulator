@@ -40,73 +40,28 @@ const VoteDisplay: React.FC<VoteDisplayProps> = ({ data }) => {
         );
     }
 
-    // Function to determine vote action and styling
-    const getVoteDisplay = (vote: string | undefined) => {
-        try {
-            // Handle undefined or -999 votes
-            if (!vote) return null;
-
-            const voteStr = vote.replace(/%/g, '');
-            const voteValue = parseFloat(voteStr);
-
-            // Skip -999 votes
-            if (voteValue === -9999) return null;
-
-            if (voteValue === 0) {
-                return {
-                    action: 'maintain',
-                    textColor: '#333333',
-                    bgColor: '#f0f0f0'
-                };
-            } else if (voteValue > 0) {
-                return {
-                    action: 'hike',
-                    textColor: '#c62828',
-                    bgColor: '#ffebee'
-                };
-            } else {
-                return {
-                    action: 'cut',
-                    textColor: '#2e7d32',
-                    bgColor: '#e8f5e9'
-                };
-            }
-        } catch (e) {
-            console.error("Error determining vote display:", e);
-            return null;
-        }
-    };
-
     return (
         <div className="w-full">
             <h2 className="text-lg font-bold mb-3">FOMC Committee Votes</h2>
             <div className="space-y-3">
                 {currentData.map((item, index) => {
-                    const voteDisplay = getVoteDisplay(item.vote);
-
                     // Skip members who haven't voted yet (-999)
-                    if (!voteDisplay) return null;
-
-                    const { action, textColor, bgColor } = voteDisplay;
-                    const itemKey = `${item.member}-${item.vote}-${index}`;
+                    if (item.vote?.includes('-9999')) return null;
 
                     return (
                         <div
-                            key={itemKey}
-                            className="p-3 rounded"
-                            style={{ backgroundColor: bgColor }}
+                            key={`${item.member}-${index}`}
+                            className="p-3 rounded bg-gray-50"
                         >
                             <div className="font-bold">{item.member}</div>
-                            <div>
-                                voted to{' '}
-                                <span style={{ color: textColor, fontWeight: 'bold' }}>
-                                    {action}
+                            <div className="mt-1">
+                                <span className="font-medium">
+                                    {item.policy_vote}
                                 </span>
-                                {' '}rates
                             </div>
                             {item.prediction && item.prediction !== "0.00%" && item.prediction !== "0%" && item.prediction !== "-999%" && (
                                 <div className="text-sm text-gray-600 mt-1">
-                                    2025 Prediction: {item.prediction}
+                                    Prediction for next year: {item.prediction}
                                 </div>
                             )}
                         </div>
