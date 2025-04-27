@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSimulation } from './WebSocketProvider';
-import VoteChart from './VoteChart';
 import PredictionChart from './PredictionChart';
 import SimulationProgress from './SimulationProgress';
 import FOMCStatement from './FOMCStatement';
@@ -155,12 +154,7 @@ const FOMCDashboard: React.FC = () => {
                         </div>
 
                         {/* Visualizations */}
-                        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="bg-white p-4 rounded-lg shadow h-80">
-                                <h3 className="text-lg font-medium mb-4">Interest Rate Votes</h3>
-                                <VoteChart data={simulationData.votes} />
-                            </div>
-
+                        <div className="col-span-2 grid grid-cols-1 gap-6">
                             <div className="bg-white p-4 rounded-lg shadow h-80">
                                 <h3 className="text-lg font-medium mb-4">2025 Rate Predictions</h3>
                                 <PredictionChart data={simulationData.predictions} />
