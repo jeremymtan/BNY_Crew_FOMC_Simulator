@@ -331,8 +331,8 @@ class SimulationManager:
 
     def step_callback(
         self,
-        agent,
-        task,
+        agent=None,
+        task=None,
         step=None,
         input_message=None,
         llm_response=None,
