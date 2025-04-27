@@ -40,26 +40,13 @@ const VoteDisplay: React.FC<VoteDisplayProps> = ({ data }) => {
         );
     }
 
-    const getVoteDisplay = (item: VoteData) => {
-        console.log(item);
-        if (item.policy_vote) {
-            const match = item.policy_vote.match(/POLICY VOTE:\s*(.*)/);
-            if (match) {
-                return match[1].trim();
-            }
-        }
-        return "Waiting for vote...";
-    };
-
     return (
         <div className="w-full">
             <h2 className="text-lg font-bold mb-3">FOMC Committee Votes</h2>
             <div className="space-y-3">
                 {currentData.map((item, index) => {
-                    const voteDisplay = getVoteDisplay(item);
-
-                    // Only show if we have a meaningful vote
-                    if (voteDisplay === "Waiting for vote...") return null;
+                    // Skip members who haven't voted yet (-999) or don't have a policy vote
+                    if (item.vote?.includes('-9999') || !item.policy_vote) return null;
 
                     return (
                         <div
@@ -69,7 +56,7 @@ const VoteDisplay: React.FC<VoteDisplayProps> = ({ data }) => {
                             <div className="font-bold">{item.member}</div>
                             <div className="mt-1">
                                 <span className="font-medium">
-                                    {voteDisplay}
+                                    {item.policy_vote}
                                 </span>
                             </div>
                             {item.prediction && item.prediction !== "0.00%" && item.prediction !== "0%" && item.prediction !== "-999%" && (

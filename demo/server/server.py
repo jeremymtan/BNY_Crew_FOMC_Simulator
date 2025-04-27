@@ -132,9 +132,9 @@ class SimulationManager:
 
         # Initialize votes and predictions data
         self.votes_data = [
-            {"member": "Regional Pragmatist", "vote": "-9999.00%"},
-            {"member": "Academic Balancer", "vote": "-9999.00%"},
-            {"member": "Central Policymaker", "vote": "-9999.00%"},
+            {"member": "Regional Pragmatist", "vote": "-9999.00%", "policy_vote": ""},
+            {"member": "Academic Balancer", "vote": "-9999.00%", "policy_vote": ""},
+            {"member": "Central Policymaker", "vote": "-9999.00%", "policy_vote": ""},
         ]
 
         self.predictions_data = [
@@ -171,9 +171,9 @@ class SimulationManager:
 
         # Reset votes and predictions
         self.votes_data = [
-            {"member": "Regional Pragmatist", "vote": "-9999.00%"},
-            {"member": "Academic Balancer", "vote": "-9999.00%"},
-            {"member": "Central Policymaker", "vote": "-9999.00%"},
+            {"member": "Regional Pragmatist", "vote": "-9999.00%", "policy_vote": ""},
+            {"member": "Academic Balancer", "vote": "-9999.00%", "policy_vote": ""},
+            {"member": "Central Policymaker", "vote": "-9999.00%", "policy_vote": ""},
         ]
 
         self.predictions_data = [
