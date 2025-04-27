@@ -4,8 +4,8 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 
-# Install Python and pip
-sudo apt-get install -y python3-pip python3-dev build-essential
+# Install Python, pip, and venv
+sudo apt-get install -y python3-pip python3-dev python3-venv build-essential
 
 # Install Node.js and npm
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -17,14 +17,19 @@ sudo npm install -g pm2
 # Install nginx
 sudo apt-get install -y nginx
 
-# Setup Backend
+# Setup Backend with virtual environment
 cd backend
-pip3 install -r ../requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+pip install -r ../requirements.txt
+deactivate
 
 # Create backend start script
 echo '#!/bin/bash
 cd backend
-python3 -m uvicorn bny_capstone_crew:app --host 0.0.0.0 --port 8000' > start-backend.sh
+source venv/bin/activate
+python3 -m uvicorn bny_capstone_crew:app --host 0.0.0.0 --port 8000
+deactivate' > start-backend.sh
 chmod +x start-backend.sh
 
 # Setup Frontend
