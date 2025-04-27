@@ -67,7 +67,7 @@ export default function FileUpload() {
             const fileNames = files.map(f => f.name).join(', ');
             console.log(`Uploading files: ${fileNames} with date prefix: ${datePrefix}`);
 
-            const response = await fetch('http://localhost:8000/api/upload', {
+            const response = await fetch('http://44.200.155.84:8000/api/upload', {
                 method: 'POST',
                 body: formData,
             });

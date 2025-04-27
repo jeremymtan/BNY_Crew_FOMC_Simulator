@@ -10,7 +10,7 @@ export function useSimulationData() {
     // Set up WebSocket connection
     useEffect(() => {
         // Create WebSocket connection
-        const socket = new WebSocket('ws://localhost:8000/ws');
+        const socket = new WebSocket('ws://44.200.155.84:8000/ws');
         socketRef.current = socket;
 
         // Connection opened
@@ -68,7 +68,7 @@ export function useSimulationData() {
     // Fallback to REST API if WebSocket is not available
     const fetchDataFromAPI = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/status');
+            const response = await fetch('http://44.200.155.84:8000/api/status');
             const data = await response.json();
             setSimulationData(data);
         } catch (error) {
@@ -79,7 +79,7 @@ export function useSimulationData() {
     // Start simulation via REST API
     const startSimulationViaAPI = useCallback(async () => {
         try {
-            await fetch('http://localhost:8000/api/start', {
+            await fetch('http://44.200.155.84:8000/api/start', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export function useSimulationData() {
     // Reset simulation via REST API
     const resetSimulationViaAPI = useCallback(async () => {
         try {
-            await fetch('http://localhost:8000/api/reset', {
+            await fetch('http://44.200.155.84:8000/api/reset', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

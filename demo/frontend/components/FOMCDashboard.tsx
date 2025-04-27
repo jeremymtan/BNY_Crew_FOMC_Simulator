@@ -17,7 +17,7 @@ const FOMCDashboard: React.FC = () => {
 
     useEffect(() => {
         // Fetch available dates when component mounts
-        fetch('http://localhost:8000/api/available-dates')
+        fetch('http://44.200.155.84:8000/api/available-dates')
             .then(response => response.json())
             .then(data => {
                 // Sort dates from most recent to oldest
@@ -46,7 +46,7 @@ const FOMCDashboard: React.FC = () => {
     const handleDateChange = async (date: string) => {
         setSelectedDate(date);
         try {
-            const response = await fetch('http://localhost:8000/api/set-date', {
+            const response = await fetch('http://44.200.155.84:8000/api/set-date', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

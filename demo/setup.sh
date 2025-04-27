@@ -22,7 +22,7 @@ cd server
 python3 -m venv venv
 source venv/bin/activate
 pip install -r ../../requirements.txt
-pip install crewai fastapi uvicorn
+pip install crewai fastapi uvicorn python-multipart
 deactivate
 
 # Create backend start script (in demo directory)
