@@ -156,7 +156,7 @@ const FOMCDashboard: React.FC = () => {
                         {/* Visualizations */}
                         <div className="col-span-2 grid grid-cols-1 gap-6">
                             <div className="bg-white p-4 rounded-lg shadow h-80">
-                                <h3 className="text-lg font-medium mb-4">2025 Rate Predictions</h3>
+                                <h3 className="text-lg font-medium mb-4">Rate Predictions for next Year</h3>
                                 <PredictionChart data={simulationData.predictions} />
                             </div>
                         </div>
