@@ -247,6 +247,15 @@ class SimulationManager:
                     crew.task_callback = self.task_callback
                     crew.step_callback = self.step_callback
                     result = crew.kickoff()
+
+                    # Ensure result is a properly formatted JSON string
+                    if isinstance(result, str):
+                        result = result.strip()
+                        if result.startswith("'") and result.endswith("'"):
+                            result = result[1:-1]  # Remove surrounding quotes
+                        if result.startswith('"') and result.endswith('"'):
+                            result = result[1:-1]  # Remove surrounding quotes
+
                     self.crew_results = result
                     self.is_running = False
                     self.progress = 100
@@ -439,8 +448,21 @@ class SimulationManager:
             return
 
         try:
+            # Ensure we have a properly formatted JSON string
+            if isinstance(self.crew_results, str):
+                result_str = self.crew_results.strip()
+                # Remove double curly braces
+                result_str = result_str.replace("{{", "{").replace("}}", "}")
+                # Remove any surrounding quotes
+                if result_str.startswith("'") and result_str.endswith("'"):
+                    result_str = result_str[1:-1]
+                if result_str.startswith('"') and result_str.endswith('"'):
+                    result_str = result_str[1:-1]
+            else:
+                result_str = json.dumps(self.crew_results)
+
             # Parse the final results JSON
-            final_results = json.loads(self.crew_results)
+            final_results = json.loads(result_str)
 
             # Update FOMC statement
             if "fomc_public_statement" in final_results:
