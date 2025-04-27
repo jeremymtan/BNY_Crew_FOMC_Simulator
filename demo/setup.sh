@@ -35,17 +35,15 @@ chmod +x start-backend.sh
 
 # Setup Frontend
 cd frontend
-# Install next globally
-npm install -g next
+# Install dependencies and build
 npm install
-# Build with full path to next
-$(npm bin)/next build
+NODE_ENV=production npm run build
 
 # Create frontend start script (in demo directory)
 cd ..
 echo '#!/bin/bash
 cd "$(dirname "$0")/frontend"
-$(npm bin)/next start -p 3000' > start-frontend.sh
+NODE_ENV=production ./node_modules/.bin/next start -p 3000' > start-frontend.sh
 chmod +x start-frontend.sh
 
 # Setup nginx configuration
