@@ -66,15 +66,28 @@ class BnyCapstoneCrew:
         """Initialize the crew with a specific date"""
         self.date = date or "23_6"  # Default to 23_6 if no date provided
         print(self.date)
-        # Initialize knowledge sources
-        self.pdf_source = PDFKnowledgeSource(
-            file_paths=[
-                os.path.join(f"{self.date} beige book.pdf"),
+        # Initialize knowledge sources, the pdfs need to be brute force loaded as strings
+        self.pdf_sources = PDFKnowledgeSource(
+            file_path=[
                 os.path.join(f"{self.date} current macro 1.pdf"),
-                os.path.join(f"{self.date} dot plot description.pdf"),
-                os.path.join("Fed Explanation.pdf"),
+                # os.path.join(f"{self.date} dot plot description.pdf"),
+                # os.path.join("Fed Explanation.pdf"),
             ]
         )
+        self.bb_source = PDFKnowledgeSource(
+            file_paths=[os.path.join(f"{self.date} beige book.pdf")]
+        )
+
+        self.dpd_source = PDFKnowledgeSource(
+            file_paths=[os.path.join(f"{self.date} dot plot description.pdf")]
+        )
+
+        self.fed_source = PDFKnowledgeSource(
+            file_paths=[os.path.join(f"Fed Explanation.pdf")]
+        )
+
+        print(self.pdf_sources)
+
         self.csv_source = CSVKnowledgeSource(
             file_paths=[os.path.join(f"{self.date} historical macro.csv")]
         )
@@ -86,7 +99,7 @@ class BnyCapstoneCrew:
             config=self.agents_config["economist"],
             verbose=True,
             llm="gpt-4o",
-            knowledge_sources=[self.pdf_source, self.csv_source],
+            knowledge_sources=[self.bb_source],
             max_iter=50,
         )
         agent.step_callback = None
@@ -98,7 +111,13 @@ class BnyCapstoneCrew:
             config=self.agents_config["Regional_Pragmatists"],
             verbose=True,
             llm=gpt_llm,
-            knowledge_sources=[self.pdf_source, self.csv_source],
+            knowledge_sources=[
+                self.pdf_sources,
+                self.csv_source,
+                self.bb_source,
+                self.dpd_source,
+                self.fed_source,
+            ],
             max_iter=50,
             memory=True,
         )
@@ -111,7 +130,13 @@ class BnyCapstoneCrew:
             config=self.agents_config["Academic_Balancers"],
             verbose=True,
             llm=gpt_llm,
-            knowledge_sources=[self.pdf_source, self.csv_source],
+            knowledge_sources=[
+                self.pdf_sources,
+                self.csv_source,
+                self.bb_source,
+                self.dpd_source,
+                self.fed_source,
+            ],
             max_iter=50,
             memory=True,
         )
@@ -124,7 +149,13 @@ class BnyCapstoneCrew:
             config=self.agents_config["Central_Policymakers"],
             verbose=True,
             llm=gpt_llm,
-            knowledge_sources=[self.pdf_source, self.csv_source],
+            knowledge_sources=[
+                self.pdf_sources,
+                self.csv_source,
+                self.bb_source,
+                self.dpd_source,
+                self.fed_source,
+            ],
             max_iter=50,
             memory=True,
         )
@@ -133,33 +164,43 @@ class BnyCapstoneCrew:
 
     @agent
     def analyst(self) -> Agent:
+        print("analyst")
+        # print(self.pdf_source)
         agent = Agent(
             config=self.agents_config["analyst"],
             verbose=True,
             llm=gpt_llm,
-            knowledge_sources=[self.pdf_source, self.csv_source],
+            knowledge_sources=[self.pdf_sources],
             max_iter=50,
             memory=True,
         )
         agent.step_callback = None
+        print(agent.knowledge_sources)
         return agent
 
     # Define economist tasks
     @task
     def probabilities_comment(self) -> Task:
+        print("probabilities_comment")
+        print(list(self.analyst().knowledge_sources[0].content.values())[0])
+        check = list(self.analyst().knowledge_sources[0].content.values())[0]
         return Task(
-            description="""
-            Make a comment about the implied probabilities in the current macro 1.pdf file.
+            description=f"""
+            Make a comment about the implied probabilities in the {self.date} macro 1.pdf file.
             Explain what this means, this data comes from the CME Fedwatch website.
+            Knowledge material: {check}
             """,
             agent=self.analyst(),
-            expected_output="A comment about the implied probabilities in the current macro 1.pdf file, explaining what it means.",
+            expected_output=f"A comment about the implied probabilities in the current macro 1.pdf file, explaining what it means.",
         )
 
     @task
     def get_economic_suggestions(self) -> Task:
+        # print(self.economist().knowledge_sources)
+        check2 = list(self.analyst().knowledge_sources[0].content.values())[0]
+        check = list(self.economist().knowledge_sources[0].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As the Fed's chief economist, analyze the current economic situation using the Beige Book, 
             historical macro data, and current economic indicators provided to you. Pay attention to the 
             probabilities implied by the futures market, mentioned in the current macro 1.pdf file.
@@ -178,6 +219,8 @@ class BnyCapstoneCrew:
             implied probabilities show a 0 percent chance of a rate hike, none of the options 
             should include increasing the rate. A 100% chance of a rate hike or a rate cut does
             not mean that the market favors a steady rate.
+            Knowledge material: {check}
+            Knowledge material 2: {check2}
             """,
             agent=self.economist(),
             context=[self.probabilities_comment()],
@@ -187,12 +230,30 @@ class BnyCapstoneCrew:
     # Define member analysis tasks
     @task
     def regional_analysis(self) -> Task:
+        # check2 = list(
+        #     self.Regional_Pragmatists().knowledge_sources[0].content.values()
+        # )[0]
+        # check = list(self.Regional_Pragmatists().knowledge_sources[0].content.values())[
+        #     0
+        # ]
+        print("regional")
+        # print(self.Regional_Pragmatists().knowledge_sources[0])
+
+        macro = list(self.Regional_Pragmatists().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Regional_Pragmatists().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Regional_Pragmatists().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Regional_Pragmatists().knowledge_sources[3].content.values())[0]
+        fed = list(self.Regional_Pragmatists().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Regional Pragmatists, analyze the economist's proposed monetary policy solutions.
             Also, make a prediction for what the Federal Funds Target rate will be at the end
             of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+            mentioned in the {self.date} current macro 1.pdf file.
             
             Consider:
             1. The current economic data from the Beige Book
@@ -207,6 +268,11 @@ class BnyCapstoneCrew:
             comparisons using exact dates, and reference specific macroeconomic indicators.
             
             End with your preliminary thoughts on which direction you're leaning and why.
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Regional_Pragmatists(),
             context=[self.get_economic_suggestions(), self.probabilities_comment()],
@@ -215,8 +281,15 @@ class BnyCapstoneCrew:
 
     @task
     def academic_analysis(self) -> Task:
+        macro = list(self.Academic_Balancers().knowledge_sources[0].content.values())[0]
+        csv_s = list(self.Academic_Balancers().knowledge_sources[1].content.values())[0]
+        bb = list(self.Academic_Balancers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Academic_Balancers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Academic_Balancers().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
+            Before you start, make sure you have read the {self.date} current macro 1.pdf file. if you cant find it, dont do the task.
+
             As Academic Balancers, analyze the economist's proposed monetary policy solutions.
             Also, make a prediction for what the Federal Funds Target rate will be at the end
             of the year in 2025. Pay attention to the probabilities implied by the futures market, 
@@ -235,6 +308,12 @@ class BnyCapstoneCrew:
             comparisons using exact dates, and reference specific macroeconomic indicators.
             
             End with your preliminary thoughts on which direction you're leaning and why.
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Academic_Balancers(),
             context=[self.get_economic_suggestions(), self.probabilities_comment()],
@@ -243,12 +322,21 @@ class BnyCapstoneCrew:
 
     @task
     def central_analysis(self) -> Task:
+        macro = list(self.Central_Policymakers().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Central_Policymakers().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Central_Policymakers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Central_Policymakers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Central_Policymakers().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Central Policymakers, analyze the economist's proposed monetary policy solutions.
             Also, make a prediction for what the Federal Funds Target rate will be at the end
             of the year in 2025. Pay attention to the probabilities implied by the futures market, 
-            mentioned in the current macro 1.pdf file.
+            mentioned in the current {self.date} macro 1.pdf file.
             
             Consider:
             1. The current economic data from the Beige Book
@@ -263,6 +351,12 @@ class BnyCapstoneCrew:
             comparisons using exact dates, and reference specific macroeconomic indicators.
             
             End with your preliminary thoughts on which direction you're leaning and why.
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Central_Policymakers(),
             context=[self.get_economic_suggestions(), self.probabilities_comment()],
@@ -272,8 +366,17 @@ class BnyCapstoneCrew:
     # Define individual discussion tasks for each member
     @task
     def regional_discussion(self) -> Task:
+        macro = list(self.Regional_Pragmatists().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Regional_Pragmatists().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Regional_Pragmatists().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Regional_Pragmatists().knowledge_sources[3].content.values())[0]
+        fed = list(self.Regional_Pragmatists().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Regional Pragmatists, respond to the initial analyses provided by your colleagues:
             
             1. Address key points raised by other members that align with or differ from your perspective
@@ -285,6 +388,12 @@ class BnyCapstoneCrew:
             of where the committee appears to be leaning and the key factors that should inform the final decision.
             Be sure to continue to reference specific historical comparisons, and specific macroeconomic indicators.
             Provide an updated prediction for the fed funds target rate at the end of 2025.
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Regional_Pragmatists(),
             context=[
@@ -297,8 +406,13 @@ class BnyCapstoneCrew:
 
     @task
     def academic_discussion(self) -> Task:
+        macro = list(self.Academic_Balancers().knowledge_sources[0].content.values())[0]
+        csv_s = list(self.Academic_Balancers().knowledge_sources[1].content.values())[0]
+        bb = list(self.Academic_Balancers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Academic_Balancers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Academic_Balancers().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Academic Balancers, respond to the initial analyses provided by your colleagues:
             
             1. Address key points raised by other members that align with or differ from your perspective
@@ -309,6 +423,12 @@ class BnyCapstoneCrew:
             Be specific in your references to other members' positions. Be sure to continue to reference
             specific historical comparisons, and specific macroeconomic indicators.
             Provide an updated prediction for the fed funds target rate at the end of 2025.
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Academic_Balancers(),
             context=[
@@ -321,8 +441,17 @@ class BnyCapstoneCrew:
 
     @task
     def central_discussion(self) -> Task:
+        macro = list(self.Central_Policymakers().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Central_Policymakers().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Central_Policymakers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Central_Policymakers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Central_Policymakers().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Central Policymakers, respond to the initial analyses provided by your colleagues:
             
             1. Address key points raised by other members that align with or differ from your perspective
@@ -332,6 +461,12 @@ class BnyCapstoneCrew:
             Be specific in your references to other members' positions. Be sure to continue to reference
             specific historical comparisons, and specific macroeconomic indicators.
             Provide an updated prediction for the fed funds target rate at the end of 2025.
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Central_Policymakers(),
             context=[
@@ -344,8 +479,17 @@ class BnyCapstoneCrew:
 
     @task
     def regional_vote(self) -> Task:
+        macro = list(self.Regional_Pragmatists().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Regional_Pragmatists().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Regional_Pragmatists().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Regional_Pragmatists().knowledge_sources[3].content.values())[0]
+        fed = list(self.Regional_Pragmatists().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Regional Pragmatists, it is time to cast your final vote and prediction.
             
             1. Clearly state which policy option you are voting for
@@ -365,6 +509,12 @@ class BnyCapstoneCrew:
             SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
             EXPLANATION: [Your explanation including specific metrics]
             PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025, a specific number, not a range]
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Regional_Pragmatists(),
             context=[
@@ -377,8 +527,13 @@ class BnyCapstoneCrew:
 
     @task
     def academic_vote(self) -> Task:
+        macro = list(self.Academic_Balancers().knowledge_sources[0].content.values())[0]
+        csv_s = list(self.Academic_Balancers().knowledge_sources[1].content.values())[0]
+        bb = list(self.Academic_Balancers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Academic_Balancers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Academic_Balancers().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Academic Balancers, it is time to cast your final vote and prediction.
             
             1. Clearly state which policy option you are voting for
@@ -398,6 +553,12 @@ class BnyCapstoneCrew:
             SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
             EXPLANATION: [Your explanation including specific metrics]
             PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025, a specific number, not a range]
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Academic_Balancers(),
             context=[
@@ -410,8 +571,17 @@ class BnyCapstoneCrew:
 
     @task
     def central_vote(self) -> Task:
+        macro = list(self.Central_Policymakers().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Central_Policymakers().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Central_Policymakers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Central_Policymakers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Central_Policymakers().knowledge_sources[4].content.values())[0]
         return Task(
-            description="""
+            description=f"""
             As Central Policymakers, it is time to cast your final vote and prediction.
             
             1. Clearly state which policy option you are voting for
@@ -431,6 +601,12 @@ class BnyCapstoneCrew:
             SPECIFIC HISTORICAL COMPARISONS: [historical comparisons by years]
             EXPLANATION: [Your explanation including specific metrics]
             PREDICTION FOR 2025: [your final prediction for the fed funds target rate at the end of 2025. A specific number, not a range]
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.Central_Policymakers(),
             context=[
@@ -444,8 +620,18 @@ class BnyCapstoneCrew:
     @task
     ### change this one
     def other_summary(self) -> Task:
+        macro = list(self.Central_Policymakers().knowledge_sources[0].content.values())[
+            0
+        ]
+        csv_s = list(self.Central_Policymakers().knowledge_sources[1].content.values())[
+            0
+        ]
+        bb = list(self.Central_Policymakers().knowledge_sources[2].content.values())[0]
+        dpd = list(self.Central_Policymakers().knowledge_sources[3].content.values())[0]
+        fed = list(self.Central_Policymakers().knowledge_sources[4].content.values())[0]
+
         return Task(
-            description="""
+            description=f"""
             As the FOMC analyst, draft a **formal public statement** on behalf of the Federal Open Market Committee (FOMC), with a total length of approximately **2,000 words**.
 
             This statement should:
@@ -465,6 +651,12 @@ class BnyCapstoneCrew:
             Word Count Guidance:
             - Aim for approximately 2,000 words (you may slightly exceed this if necessary).
             - If needed, use sentence expansions or insert additional nuance consistent with Fed tone.
+
+            Knowledge material currnt macroeconomic data: {macro}
+            Knowledge material historical macroeconomic data: {csv_s}
+            Knowledge material Beige Book: {bb}
+            Knowledge material Dot plot data: {dpd}
+            Knowledge material fed explanation: {fed}
             """,
             agent=self.analyst(),
             context=[
@@ -605,6 +797,8 @@ class BnyCapstoneCrew:
     @crew
     def crew(self) -> Crew:
         """Creates the FOMC simulation crew"""
+        print("crew")
+        print(self.pdf_sources)
         return CallbackCrew(
             agents=[
                 self.economist(),
@@ -617,11 +811,11 @@ class BnyCapstoneCrew:
                 # First get economic suggestions
                 self.probabilities_comment(),
                 self.get_economic_suggestions(),
-                # Then have each member analyze the suggestions
+                # # Then have each member analyze the suggestions
                 self.regional_analysis(),
                 self.academic_analysis(),
                 self.central_analysis(),
-                # Then have individual discussion contributions from each member
+                # # Then have individual discussion contributions from each member
                 self.regional_discussion(),
                 self.academic_discussion(),
                 self.central_discussion(),
@@ -642,5 +836,6 @@ class BnyCapstoneCrew:
             # long_term_memory=LongTermMemory(
             #    storage=LTMSQLiteStorage(db_path="memory/fomc_longterm.db")
             # ),
+            # knowledge_sources=[self.pdf_source, self.csv_source],
             output_log_file="fomc_simulation.md",
         )
