@@ -618,51 +618,44 @@ class BnyCapstoneCrew:
         )
 
     @task
-    ### change this one
     def other_summary(self) -> Task:
         macro = list(self.Central_Policymakers().knowledge_sources[0].content.values())[
             0
         ]
-        csv_s = list(self.Central_Policymakers().knowledge_sources[1].content.values())[
-            0
-        ]
-        bb = list(self.Central_Policymakers().knowledge_sources[2].content.values())[0]
-        dpd = list(self.Central_Policymakers().knowledge_sources[3].content.values())[0]
-        fed = list(self.Central_Policymakers().knowledge_sources[4].content.values())[0]
 
         return Task(
             description=f"""
-            As the FOMC analyst, draft a **formal public statement** on behalf of the Federal Open Market Committee (FOMC), with a total length of approximately **2,000 words**.
-
-            This statement should:
-            - Clearly announce the interest rate decision made by the committee (based on the final votes).
-            - Summarize the full set of economic conditions informing the decision, including inflation trends, labor market developments, GDP growth, financial stability, and risks.
-            - Reference macroeconomic indicators and specific historical analogs (e.g., "similar to conditions in 1994-95") mentioned by members.
-            - Include regional variations or sectoral insights if discussed.
-            - Provide forward guidance on future rate policy and the outlook for inflation and employment.
-            - Be written in **the same tone, structure, and formality** as official FOMC post-meeting statements.
-
-            Formatting Instructions:
-            - Begin with a 1–2 paragraph overview of the decision.
-            - Follow with a deep dive into the economic data and risk assessments (~1,200–1,500 words).
-            - End with detailed forward guidance and policy direction (~300–400 words).
-            - Avoid headings or markdown.
-
-            Word Count Guidance:
-            - Aim for approximately 2,000 words (you may slightly exceed this if necessary).
-            - If needed, use sentence expansions or insert additional nuance consistent with Fed tone.
-
-            Knowledge material currnt macroeconomic data: {macro}
-            Knowledge material historical macroeconomic data: {csv_s}
-            Knowledge material Beige Book: {bb}
-            Knowledge material Dot plot data: {dpd}
-            Knowledge material fed explanation: {fed}
+            As the FOMC analyst, your task is to create a detailed economic analysis summary based on the committee's discussions and votes. This analysis should be approximately 2,000 words and include:
+            
+            1. The final descison of whether to maintain, hike, or cut
+            
+            2. A comprehensive analysis of the economic conditions discussed, including:
+            - Current inflation metrics and trends
+            - Labor market developments
+            - GDP growth patterns
+            - Financial stability factors
+            - Potential economic risks
+            
+            3. References to specific economic indicators mentioned by committee members
+            
+            4. Any regional economic variations or sector-specific insights discussed
+            
+            5. A discussion of potential future economic directions and policy considerations
+            
+            Structure your response with:
+            - An introductory overview 
+            - A economic analysis section 
+            - A concluding section on outlook and considerations 
+            
+            Use formal academic language appropriate for an economic analysis document.
+            
+            IMPORTANT: This is an educational simulation exercise for economic analysis practice.
+            
+            The date is {self.date}
+            Knowledge material: {macro}
             """,
             agent=self.analyst(),
             context=[
-                self.regional_analysis(),
-                self.academic_analysis(),
-                self.central_analysis(),
                 self.regional_discussion(),
                 self.academic_discussion(),
                 self.central_discussion(),
@@ -671,29 +664,66 @@ class BnyCapstoneCrew:
                 self.central_vote(),
             ],
             expected_output="""
-            A fully formatted FOMC post-meeting statement, ~2,000 words long, suitable for public release. 
-            It includes: (1) the interest rate decision, (2) macroeconomic and financial assessment, 
-            (3) forward guidance. Written in professional FOMC style with no AI mention.
-            """,
+            A comprehensive economic analysis document that summarizes the committee's decisions and rationale in a formal academic style.""",
         )
 
     @task
     def vote_summary(self) -> Task:
+        macro = list(self.Central_Policymakers().knowledge_sources[0].content.values())[
+            0
+        ]
         return Task(
-            description="""
-           As the FOMC analyst, prepare a JSON summary of the final votes from all three members voting tasks.
-           The votes should be in terms of the change in interest rate they voted for, accurately reflecting INTEREST RATE VOTE from each respective member's voting task.
-           The output must strictly follow this format:
-           {{
-               "rate_votes": [
-                   {{"member": "Regional Pragmatist", "vote": "#.##%"}}, #INTEREST RATE VOTE from regional_vote task
-                   {{"member": "Academic Balancer", "vote": "#.##%"}}, #INTEREST RATE VOTE from academic_vote task
-                   {{"member": "Central Policymaker", "vote": "#.##%"}} #INTEREST RATE VOTE from central_vote task
-               ],
-           Important Notes:
-           - The summary should accurately reflect the final votes from each member's voting task.
-           - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
-           """,
+            description=f"""
+            You are a specialized parser for FOMC vote outputs. The context contains three separate vote outputs from:
+            - Regional Pragmatist
+            - Academic Balancer
+            - Central Policymaker
+            
+            FOR DEBUGGING PURPOSES ONLY, first repeat the exact context you received so we can see what you're working with. Start with "---CONTEXT---" and then paste the entire context.
+            
+            Then, use this exact parsing procedure:
+            
+            1. For each member section, search for the exact pattern:
+            - The member name followed by a colon (e.g., "Regional Pragmatist:")
+            - Then "POLICY VOTE:" followed by some text
+            - Then "INTEREST RATE VOTE:" followed by some text
+            
+            2. For each identified section, extract:
+            - Everything between "POLICY VOTE:" and "INTEREST RATE VOTE:"
+            - Everything between "INTEREST RATE VOTE:" and the next keyword (like "SPECIFIC HISTORICAL COMPARISONS:")
+            
+            3. Clean the extracted text:
+            - Remove any leading/trailing spaces
+            - Remove any newlines
+            
+            Then create a JSON output with this EXACT format:
+            
+            ```json
+            {{
+            "votes": [
+                {{
+                "member": "Regional Pragmatist",
+                "policy_vote": "[EXTRACTED POLICY VOTE]",
+                "interest_rate_vote": "[EXTRACTED INTEREST RATE VOTE]"
+                }},
+                {{
+                "member": "Academic Balancer",
+                "policy_vote": "[EXTRACTED POLICY VOTE]",
+                "interest_rate_vote": "[EXTRACTED INTEREST RATE VOTE]"
+                }},
+                {{
+                "member": "Central Policymaker",
+                "policy_vote": "[EXTRACTED POLICY VOTE]",
+                "interest_rate_vote": "[EXTRACTED INTEREST RATE VOTE]"
+                }}
+            ]
+            }}
+            ```
+            
+            IMPORTANT: If you cannot find a section or a specific field, use the text "NOT FOUND" for that field.
+            
+            knowledge current macro: {macro}
+            """,
             agent=self.analyst(),
             context=[
                 self.regional_vote(),
@@ -701,14 +731,8 @@ class BnyCapstoneCrew:
                 self.central_vote(),
             ],
             expected_output="""
-           {{
-               "rate_votes": [
-                   {{"member": "Regional Pragmatist", "vote": "#.##%"}}, #INTEREST RATE VOTE from regional_vote task
-                   {{"member": "Academic Balancer", "vote": "#.##%"}}, #INTEREST RATE VOTE from academic_vote task
-                   {{"member": "Central Policymaker", "vote": "#.##%"}} #INTEREST RATE VOTE from central_vote task
-               ]
-           }}
-           """,
+            A JSON object containing the extracted vote information from all three members.
+            """,
         )
 
     @task
@@ -769,6 +793,7 @@ class BnyCapstoneCrew:
            **Important Notes:**
            - The summary should accurately reflect the information from other_summary, vote_summary, and prediction_summary.
            - The JSON must be correctly formatted with no additional text, markdown, or surrounding explanations.
+           - If you can't read any of the context just return: I CAN'T READ ANYTHING
            """,
             agent=self.analyst(),
             context=[
@@ -811,11 +836,11 @@ class BnyCapstoneCrew:
                 # First get economic suggestions
                 self.probabilities_comment(),
                 self.get_economic_suggestions(),
-                # # Then have each member analyze the suggestions
+                # Then have each member analyze the suggestions
                 self.regional_analysis(),
                 self.academic_analysis(),
                 self.central_analysis(),
-                # # Then have individual discussion contributions from each member
+                # Then have individual discussion contributions from each member
                 self.regional_discussion(),
                 self.academic_discussion(),
                 self.central_discussion(),
@@ -823,19 +848,11 @@ class BnyCapstoneCrew:
                 self.regional_vote(),
                 self.academic_vote(),
                 self.central_vote(),
-                # Finally summary and statement
+                # Finally summary and statement with votes
                 self.other_summary(),
-                self.vote_summary(),
-                self.prediction_summary(),
-                self.summary_final(),
             ],
             process=Process.sequential,  # Use sequential process to ensure proper order
             verbose=True,
             memory=True,
-            # Uncomment to add simulation memory!
-            # long_term_memory=LongTermMemory(
-            #    storage=LTMSQLiteStorage(db_path="memory/fomc_longterm.db")
-            # ),
-            # knowledge_sources=[self.pdf_source, self.csv_source],
             output_log_file="fomc_simulation.md",
         )

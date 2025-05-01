@@ -6,6 +6,7 @@ import { useSimulation } from './WebSocketProvider';
 import PredictionChart from './PredictionChart';
 import SimulationProgress from './SimulationProgress';
 import FOMCStatement from './FOMCStatement';
+import VoteChart from './VoteChart';
 import ConversationLog from './ConversationLog';
 
 const FOMCDashboard: React.FC = () => {
@@ -154,9 +155,14 @@ const FOMCDashboard: React.FC = () => {
                         </div>
 
                         {/* Visualizations */}
-                        <div className="col-span-2 grid grid-cols-1 gap-6">
+                        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-white p-4 rounded-lg shadow h-80">
-                                <h3 className="text-lg font-medium mb-4">Rate Predictions for next Year</h3>
+                                <h3 className="text-lg font-medium mb-4">Interest Rate Votes</h3>
+                                <VoteChart data={simulationData.votes} />
+                            </div>
+
+                            <div className="bg-white p-4 rounded-lg shadow h-80">
+                                <h3 className="text-lg font-medium mb-4">2025 Rate Predictions</h3>
                                 <PredictionChart data={simulationData.predictions} />
                             </div>
                         </div>
