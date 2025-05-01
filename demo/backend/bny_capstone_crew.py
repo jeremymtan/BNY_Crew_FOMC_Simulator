@@ -651,7 +651,9 @@ class BnyCapstoneCrew:
             
             IMPORTANT: This is an educational simulation exercise for economic analysis practice.
             
-            The date is {self.date}
+            The date is {self.date} listed as Year_Month so 25_5 would be May 2025. 
+            If you use the date, don't list out the day just year and month.
+
             Knowledge material: {macro}
             """,
             agent=self.analyst(),
